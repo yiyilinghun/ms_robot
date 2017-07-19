@@ -18,8 +18,8 @@ typedef google::protobuf::Message*  LPBASEPROTO;
 #pragma warning(pop)
 
 #include "MsBase.h"
-#include "d3d9.h"
-#include "d3dx9.h"
+#include "DX9/d3d9.h"
+#include "DX9/d3dx9.h"
 #include "CommonResDef.h"
 
 #ifndef var
