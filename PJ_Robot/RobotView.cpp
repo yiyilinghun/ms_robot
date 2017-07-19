@@ -505,7 +505,7 @@ Boolean RobotView::AddNewRobot(wstr xAddr, WORD xPort)
 
     //if (MsBase::Ping(MsBase::W2M(xAddr)))
     //{
-    if (m_NetRobot.BlockCreateClient(MsBase::W2M(xAddr), xPort, xRobotPlayer))
+    if (m_NetRobot.BlockCreateClient(MsBase::W2M(xAddr), xPort, *xRobotPlayer))
     {
         xRobotPlayer->m_IsConnected = True;
         xRobotPlayer->ReadyState();
@@ -693,7 +693,7 @@ void RobotView::CreateRobot(Int32 xRobotCount)
 
     for (Int32 i = 0; i < xRobotCount; i++)
     {
-        if (!this->AddNewRobot(xServerAddr, GetServerPort() + R_WORD(0, GetServerSum())))
+        if (!this->AddNewRobot(L"192.168.4.209", 52113))
         {
             break;
         }

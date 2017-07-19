@@ -58,6 +58,7 @@ Boolean MsNetClient::BlockCreateClient(mstr xAddr, UInt16 xPort, MsNetTerminal* 
     return False;
 }
 
+
 MsNetTerminal* MsNetClient::TryCreateClient(mstr xAddr, UInt16 xPort, MsIOCPManager* xMsIOCPManager)
 {
     MsNetTerminal* xMsNetTerminal = this->GetNewNetTerminal(xMsIOCPManager);
