@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="Battle.proto" />
+    <CustomBuild Include="Common.proto" />
+    <CustomBuild Include="Database.proto" />
+    <CustomBuild Include="EnumDef.proto" />
+    <CustomBuild Include="Mail.proto" />
+    <CustomBuild Include="NetPacket.proto" />
+    <CustomBuild Include="Server.proto" />
+    <CustomBuild Include="Task.proto" />
+  </ItemGroup>
+</Project>

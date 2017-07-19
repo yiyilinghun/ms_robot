@@ -1,0 +1,767 @@
+syntax = "proto2";
+import "EnumDef.proto";
+import "Common.proto";
+import "Battle.proto";
+import "Database.proto";
+
+// 准备跑起的场景
+message ReadyRunSceneInfo
+{
+    required sint32 scene_id                        = 1;
+    required sint32 scene_index                     = 2;
+    required sint32 map_id                          = 3;
+    required E_SCENE_TYPE scene_type                = 4[default = EST_INVALID];
+    repeated universal_data list_role_info          = 5;
+    repeated universal_data list_team_info          = 6;
+    repeated ServerBattleUnitInfo list_monster_info = 7;
+    repeated sint64 list_login_intaddr              = 8;
+}
+
+// 已经跑起的场景
+message RunningSceneInfo
+{
+    required sint64 scene_instance_id   = 1;    // 实例索引
+    required sint32 scene_id            = 2;    // 场景索引
+    required sint32 scene_index         = 3;    // 分线索引
+    required sint64 intaddr             = 4;    // 场景地址
+    required sint32 loads               = 5;    // 负载(1-100)
+}
+
+// 请求开启新场景信息
+message S2S_Ask_CreateNewScene
+{
+    required sint32                 scene_id                = 1;
+    required sint64                 scene_instance_id       = 2;
+    required sint64                 server_instance_id      = 3;
+    required E_SCENE_TYPE           scene_type              = 4[default = EST_INVALID];
+}
+
+// 回复开启新场景信息
+message S2S_Ret_CreateNewScene
+{
+    required bytes          ret_code            = 1;
+    required sint32         scene_id            = 2;
+    required sint64         scene_instance_id   = 3;
+    required sint64         server_instance_id  = 4;
+    required E_SCENE_TYPE   scene_type          = 5[default = EST_INVALID];
+}
+
+// 同步新场景信息
+message S2S_Sync_NewSceneInfo
+{
+    required sint32                 scene_id                = 1;
+    required sint64                 scene_instance_id       = 2;
+    required sint64                 server_instance_id      = 3;
+    required E_SCENE_TYPE           scene_type              = 4[default = EST_INVALID];
+}
+
+//// 物品列表
+//message lua_item
+//{
+//    required sint32 id          = 1;
+//    required bytes  type        = 2;
+//    required bytes  name        = 3;
+//    required bytes  res_file    = 4;
+//    required sint32 res_key     = 5;
+//    required sint32 price       = 6;
+//    repeated bytes  params      = 7;
+//}
+//
+//// 出生配置
+//message lua_born
+//{
+//    required sint32         id          = 1;
+//    required sint32         sceneID     = 2;
+//    required sint32         gold        = 3;
+//    required sint32         stamina     = 4;
+//    required sint32         diamond     = 5;
+//    required sint32         level       = 6;
+//    required sint32         vip         = 7;
+//    repeated item_config    itemList    = 8;
+//}
+//
+//// 物品列表
+//message lua_pos
+//{  
+//    required float  pos_x   = 1;
+//    required float  pos_y   = 2;
+//}
+//
+//// 场景配置
+//message config_scene
+//{
+//    required sint32 scene_id    = 1;
+//    required bytes  scene_type  = 2;
+//    required bytes  scene_name  = 3;
+//    required bytes  map_name    = 4;
+//    //repeated sint32 transportList   = 6;
+//    //repeated sint32 buildingList    = 7;
+//    //repeated sint32 npcList         = 8;
+//    //repeated lua_pos bornPosList    = 9;
+//}
+//
+//// 场景配置
+//message lua_scene
+//{
+//    required sint32 id              = 1;
+//    required sint32 type            = 2;    // E_SCENE_TYPE
+//    required bytes  nameID          = 3;
+//    repeated sint32 mapList         = 4;
+//    required bytes  dataFile        = 5;
+//    repeated sint32 transportList   = 6;
+//    repeated sint32 buildingList    = 7;
+//    repeated sint32 npcList         = 8;
+//    repeated lua_pos bornPosList    = 9;
+//}
+//
+//// 装备配置
+//message lua_equip
+//{
+//    required sint32 id          = 1;
+//    required bytes  nameID      = 2;
+//    required bytes  desID       = 3;
+//    required sint32 type        = 4;
+//    required sint32 wingtype    = 5;
+//    required bytes  csbName     = 6;
+//    required sint32 animSuffix  = 7;
+//    required sint32 quality     = 8;
+//    required sint32 atkMin      = 9;
+//    required sint32 atkMax      = 10;
+//    required sint32 hp          = 11;
+//    required sint32 def         = 12;
+//    required sint32 crit        = 13;
+//    required sint32 block       = 14;
+//    required sint32 speed       = 15;
+//    required sint32 fullAttr    = 16;
+//    required sint32 endurance   = 17;
+//    required sint32 icon        = 18;
+//    required sint32 basePrice   = 19;
+// }
+//
+//// 套装商店记录
+//message lua_suit_shop
+//{
+//    required sint32 index       = 1;    // 商店编号
+//    required sint32 id          = 2;    // 套装ID
+//    repeated sint32 duration    = 3;    // 时效消失
+//    required sint32 costType    = 4;    // 购买消耗类型
+//    repeated sint32 price       = 5;    // 买入价格
+// }
+//
+// // 套装
+//message lua_suit
+//{
+//    required sint32 id          = 1;
+//    required sint32 isSpecial   = 4;
+//    required sint32 resID       = 5;
+//    required sint32 atk         = 6;
+//    required sint32 hp          = 7;
+//    required sint32 def         = 8;
+//    required sint32 crit        = 9;
+//    required sint32 block       = 10;
+//}
+//
+//// 套装商店记录
+//message lua_face_shop
+//{
+//    required sint32 index       = 1;    // 商店编号
+//    required sint32 id          = 2;    // 套装ID
+//    repeated sint32 duration    = 3;    // 时效消失
+//    required sint32 costType    = 4;    // 购买消耗类型
+//    repeated sint32 price       = 5;    // 买入价格
+//}
+//message lua_face_discount
+//{
+//    required sint32 index       = 1;    // 商店编号
+//    required sint32 id          = 2;    // 套装ID
+//    required sint32 duration    = 3;    // 时效消失
+//    required sint32 costType    = 4;    // 购买消耗类型
+//    required sint32 price       = 5;    // 买入价格
+//    required sint32 discount    = 6;    // 打折比例
+//}
+//
+//// 传送信息
+//message lua_trans_info
+//{
+//    required sint32     id          = 1;    // 传送Id
+//    required sint32     targetID    = 2;    // 目标场景
+//    repeated lua_pos    rect        = 3;    // 目标区域
+//}
+//
+//// 传送点
+//message lua_transport
+//{
+//    required sint32     id          = 1;    // 传送点Id
+//    required bytes      nameID      = 2;
+//    required lua_pos    pos         = 3;    // 所在坐标
+//    required bytes      res         = 4;
+//    repeated sint32     targetList  = 5;    // 可传送列表
+//}
+//
+//// NPC
+//message lua_npc
+//{
+//    required sint32     id          = 1;    // NPCId
+//    required bytes      nameID      = 2;
+//    required sint32     type        = 3;    // NPCId
+//    required bytes      resType     = 4;    
+//    required bytes      res         = 5;
+//    repeated lua_pos    pos         = 6;    // 所在坐标
+//    repeated sint32     targetList  = 7;    // 可传送列表
+//}
+//
+//// 章节
+//message lua_chapter
+//{
+//    required sint32         id          = 1;
+//    required bytes          nameID      = 2;
+//    required bytes          music       = 3;
+//    repeated sint32         dupList     = 4;
+//    repeated lua_pos        posList     = 5;
+//    required bytes          icon        = 6;
+//    required bytes          title       = 7;
+//    repeated item_config    rewardList  = 8;
+//    required bytes          lockIcon    = 9;
+//}
+//
+//// 通关关卡
+//message open_dup_config
+//{
+//    required sint32     chapID  = 1;
+//    required sint32     dupID   = 2;
+//}
+//
+//// 关卡
+//message lua_risk
+//{
+//    required sint32             id              = 1;
+//    required bytes              nameID          = 2;
+//    required bytes              desID           = 3;
+//    repeated sint32             waveList        = 4;
+//    required sint32             boss            = 5;
+//    required sint32             type            = 6;
+//    required sint32             openLevel       = 7;
+//    repeated open_dup_config    openDupList     = 8;
+//    repeated sint32             passCondList    = 9;
+//    repeated sint32             passArgList     = 10;
+//    required sint32             limitTime       = 11;
+//    repeated bytes              mapList         = 12;
+//    required sint32             maxScreen       = 13;
+//    required sint32             startScreen     = 14;
+//    repeated sint32             dropRang        = 15;
+//    required sint32             masterBoxID     = 16;
+//    required sint32             bossBoxID       = 17;
+//    repeated sint32             showRewardList  = 18;
+//    repeated item_config        getRewardList   = 19;
+//    required bytes              icon            = 20;
+//}
+//
+//// 事件参数列表
+//message lua_event_arg_list
+//{
+//    optional sint32 percent = 1;
+//}
+//
+//// 波次表
+//message lua_battle_wave
+//{
+//    required sint32     id                      = 1;
+//    required bytes      nameID                  = 2;
+//    repeated sint32     monsterList             = 3;
+//    repeated sint32     levelList               = 4;
+//    repeated sint32     diffList                = 5;
+//    repeated sint32     posList                 = 6;
+//    required sint32     eventID                 = 7;
+//    repeated sint32     eventConList            = 8;
+//    required lua_event_arg_list eventArgList    = 9;
+//}
+//
+//// 怪物表
+//message lua_monster
+//{
+//    required sint32 id                  = 1;
+//    required bytes  nameID              = 2;
+//    required bytes  res                 = 3;
+//    repeated sint32 actNormalList       = 4;
+//    repeated sint32 actSkillList        = 5;
+//    repeated sint32 actSkillProbList    = 6;
+//    repeated sint32 pasSkillList        = 7;
+//    required sint32 atk                 = 8;
+//    required sint32 def                 = 9;
+//    required sint32 hp                  = 10;
+//    required sint32 crit                = 11;
+//    required sint32 block               = 12;
+//    required sint32 speed               = 13;
+//    required sint32 act                 = 14;
+//    required sint32 boss                = 15;
+//    required sint32 attrID              = 16;
+//}
+//
+//// 召唤兽
+//message lua_summons
+//{
+//    required sint32 id          = 1;
+//    required bytes  name        = 2;
+//    required bytes  racial      = 3;
+//    required bytes  gender      = 4;
+//    required bytes  role_type   = 5;
+//    required bytes  nick_name   = 6;
+//    required sint32 level       = 7;
+//
+//    required sint32 hp          = 8;
+//    required float  hp_gr       = 9;
+//    required sint32 mp          = 10;
+//    required float  mp_gr       = 11;
+//    required sint32 ap          = 12;
+//    required float  ap_gr       = 13;
+//    required sint32 sp          = 14;
+//    required float  sp_gr       = 15;
+//
+//    repeated bytes  skill_list  = 16;
+//}
+//
+//// 随机宝箱表
+//message lua_random_box
+//{
+//    required sint32 id          = 1;
+//    required sint32 minLevel    = 2;
+//    required sint32 maxLevel    = 3;
+//    required sint32 rewardID    = 4;
+//}
+//
+//// 礼包信息
+//message lua_package
+//{
+//    required sint32 id          = 1;
+//    required bytes  nameID      = 2;    // 礼包名称ID
+//    required sint32 randomCount = 3;    // 随机数量
+//    repeated sint32 rewardList  = 4;    // 礼包奖励列表
+//    repeated sint32 weightList  = 5;    // 权重列表
+//}
+//
+//// 奖励信息
+//message lua_reward
+//{
+//    required sint32 id          = 1;
+//    required sint32 itemID      = 2;    // 货物ID
+//    required sint32 count       = 3;    // 数量
+//    required sint32 miniRate    = 4;    // 最小倍数
+//    required sint32 maxRate     = 5;    // 最大倍数
+//    required sint32 isResetTime = 6;    // 是否重置抽取次数
+//    required sint32 getTime     = 7;    // 抽到次数
+//}
+//
+//// 物品列表
+//message item_list_config
+//{
+//    repeated item_config item   = 1;
+//}
+//
+//// 系统技能表
+//message lua_role_skill
+//{
+//    required sint32 id                      = 1;    // 系统技能ID
+//    required bytes  nameID                  = 2;    // 技能名称ID
+//    required bytes  desID                   = 3;    // 技能描述ID
+//    required sint32 type                    = 4;    // 类型
+//    required bytes  icon                    = 5;    // 图标
+//    required sint32 openLevel               = 6;    // 解锁等级
+//    repeated item_config learnItemList      = 7;    // 学习所需道具列表
+//    repeated sint32 profiList               = 8;    // 熟练度经验列表
+//    required sint32 skillID                 = 9;    // 逻辑技能ID
+//    repeated item_list_config upItemList    = 10;   // 升级道具列表
+//}
+//
+//// 人物等级属性表
+//message lua_role_level
+//{
+//    required sint32 level       = 1;    // 玩家等级
+//    required sint32 exp         = 2;    // 升级所需经验
+//    required sint32 attrpoint   = 3;    // 获得属性点
+//}
+
+// 返回查询在线单元
+message S2S_Currency_Packet
+{
+    repeated bytes datas = 1;
+}
+
+// 玩家顶号请求
+message S2S_Player_Displacement
+{
+    required sint64 role_index          = 1;
+    required sint64 gate_intaddr        = 2;
+    required sint64 scene_intaddr       = 3;
+    required sint64 scene_instance_id   = 4;
+    required sint64 save_intaddr        = 5;
+}
+
+// 通知玩家下线
+message S2S_Player_Offline
+{
+    required sint64 role_index  = 1;
+    required bytes  kick_reason = 2;
+}
+
+// 通知角色存盘
+message S2S_Ask_Role_Save
+{
+    required universal_data  role_info  = 1;
+}
+
+// 通知角色离开网关
+message S2S_Ask_Role_Leave_Login
+{
+    required sint64 role_index          = 1;
+    required bytes  account             = 2;
+    required bytes  sid                 = 3;
+    required bytes  ip                  = 4;
+}
+
+// 通知角色进入场景
+message S2S_Ask_Role_Enter_Scene
+{
+    required sint64 role_index          = 1;
+    required sint64 role_intaddr        = 2;
+    required sint64 scene_instance_id   = 3;
+}
+message S2S_Ask_Role_Leave_Scene
+{
+    required sint64 role_index          = 1;
+    required sint64 role_intaddr        = 2;
+    required sint64 scene_instance_id   = 3;
+}
+
+// 回复注册集群节点
+message S2S_Ret_Register_ClusterNode
+{
+    required sint32 node_index      = 1;    // 节点索引
+    required sint64 unit_next_index = 2;    // 对象起始索引
+}
+
+// 回复集群节点信息
+message S2S_Ret_Select_ClusterNode
+{
+    repeated sint64 list_intaddr     = 1;    // 地址
+    repeated sint32 list_node_index  = 2;    // 节点索引
+    repeated sint64 list_pressure    = 3;    // 压力
+    repeated sint64 list_last_time   = 4;    // 最后更新
+}
+
+// 回复注册集群节点
+message S2S_Ret_Update_ClusterNode
+{
+    required sint64 intaddr     = 1;    // 地址
+    required sint32 node_index  = 2;    // 端口
+}
+
+// 请求集群信息
+message S2S_Ask_ClusterInfo
+{
+    required sint64 node_index  = 1;    // 节点索引
+}
+
+// 回复集群信息
+message S2S_Ret_ClusterInfo
+{
+    repeated bytes  list_addr        = 1;    // 地址
+    repeated sint32 list_port        = 2;    // 端口
+    repeated sint64 list_pressure    = 3;    // 压力
+    repeated sint32 list_node_index  = 4;    // 节点索引
+}
+
+// 更新在线单元
+message S2S_Ret_Update_OnlineUnit
+{
+    required E_ONLINE_UNIT_RET  ret = 1[default = EOUR_OK];
+}
+
+// 移除在线单元
+message S2S_Delete_OnlineUnitInfo
+{
+    required sint32 unit_type   = 1;    // 对象类型
+    required sint64 unit_index  = 2;    // 对象索引
+}
+
+// 挂起在线单元
+message S2S_Suspend_OnlineUnitInfo
+{
+    required sint32 unit_type   = 1;    // 对象类型
+    required sint64 unit_index  = 2;    // 对象索引
+}
+
+// 恢复在线单元
+message S2S_Resume_OnlineUnitInfo
+{
+    required sint32 unit_type   = 1;    // 对象类型
+    required sint64 unit_index  = 2;    // 对象索引
+}
+
+// 查询在线单元
+message S2S_Select_OnlineUnitInfo
+{
+    required sint32 unit_type   = 1;    // 对象类型
+    required sint64 unit_index  = 2;    // 对象索引
+    required bytes  addr        = 3;    // 地址
+    required sint32 port        = 4;    // 端口
+}
+
+// 返回查询在线单元
+message S2S_Ret_Select_OnlineUnitInfo
+{
+    required sint32 unit_type   = 1;    // 对象类型
+    required sint64 unit_index  = 2;    // 对象索引
+    required bytes  addr        = 3;    // 地址
+    required sint32 port        = 4;    // 端口
+}
+
+message S2S_RetReadyChangeScene
+{
+    required bytes  ret_code            = 1;
+    required sint64 role_index          = 2;
+    required sint32 scene_id            = 5;
+    required sint64 scene_instance_id   = 6;
+    required sint64 login_intaddr       = 7;
+    //optional role_info roleinfo         = 8;
+}
+
+//message S2S_RetScenePlayerByLevel
+//{
+//    repeated online_player_info scene_player_infos = 1;
+//}
+//
+//message S2S_GetScenePlayerByRoleIndex
+//{
+//    required online_player_info scene_player_info = 1;
+//}
+
+message S2S_Request_Add_Friend
+{
+    required sint64 role_index      = 1;
+    required sint64 src_role_index  = 2;
+    required bool   is_refuse       = 3;
+}
+
+message S2S_Friends_List
+{
+    repeated sint64 list_friend_role_index   = 1;
+}
+
+//message S2S_Ret_Select_Friends_OnlineList
+//{
+//    repeated online_player_info online_friends_info = 1;
+//}
+//
+//message S2S_Ret_Find_OnlinePlayer
+//{
+//    required online_player_info player_info  = 1;
+//}
+
+
+// 检查登录是否存在指定玩家
+message S2S_AskCheckPlayerInLogin
+{
+    required sint64 role_index          = 1;
+    required sint64 src_temp_unit_index = 2;
+    required sint64 src_intaddr         = 3;
+    required sint64 intaddr             = 4;
+}
+message S2S_RetCheckPlayerInLogin
+{
+    required sint64 role_index          = 1;
+    required bool   in_login            = 2;
+    required sint64 intaddr             = 3;
+}
+
+// 请求进入场景
+message S2S_AskEnterScene
+{
+    required sint32 scene_id                        = 1;
+    required sint32 map_id                          = 2;
+    optional universal_data team_info               = 3;
+    repeated universal_data list_role_info          = 4;
+    repeated ServerBattleUnitInfo list_monster_info = 5;
+    repeated sint64 list_login_intaddr              = 6;
+}
+// 回复进入场景
+message S2S_RetEnterScene
+{
+    required sint32 scene_id                    = 1;
+    required sint64 role_index                  = 2;
+    required sint64 login_intaddr               = 3;
+    required bool   is_ok                       = 4;
+}
+
+// 通知进入场景
+message S2S_ReadyEnterScene
+{
+    required sint32 scene_id            = 1;
+    required sint64 scene_instance_id   = 2;
+    required sint64 role_index          = 3;
+    required bytes  account             = 4;
+    required bytes  nick_name           = 5;
+    required universal_data role_info   = 6;
+    required sint64 login_intaddr       = 7;
+}
+message S2S_TeamReadyEnterScene
+{
+    required sint32 scene_id                        = 1;
+    required sint64 scene_instance_id               = 2;
+    required universal_data team_info               = 3;
+    repeated universal_data list_role_info          = 4;
+    repeated ServerBattleUnitInfo list_monster_info = 5;
+    repeated sint64 list_login_intaddr              = 6;
+}
+
+// 广播有新场景可以载入
+message S2S_BroadcastHaveNewScene
+{
+    required sint64 center_scene_manager_intaddr    = 1;
+}
+// 请求载入新场景
+message S2S_AskLoadNewScene
+{
+    required sint64 scene_manager_intaddr   = 1;
+}
+// 回复载入新场景
+message S2S_RetLoadNewScene
+{
+    required sint32 scene_id                        = 1;
+    required sint32 scene_index                     = 2;
+    required sint32 map_id                          = 3;
+    required E_SCENE_TYPE scene_type                = 4[default = EST_INVALID];
+    repeated universal_data list_role_info          = 5;
+    repeated universal_data list_team_info          = 6;
+    repeated ServerBattleUnitInfo list_monster_info = 7;
+    repeated sint64 list_login_intaddr              = 8;
+}
+
+// 请求注册新场景
+message S2S_AskRegRunningSceneInfo
+{
+    required RunningSceneInfo scene_info   = 1;
+}
+// 请求反注册场景
+message S2S_AskUnRegRunningSceneInfo
+{
+    required RunningSceneInfo scene_info   = 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 请求登录管理
+message GM2S_AskLogin
+{
+    required bytes  account         = 1;
+    required bytes  password        = 2;
+}
+// 回复登录管理
+message S2GM_RetLogin
+{
+    required bytes  ret_code    = 1;
+    required bytes  account     = 2;
+}
+
+// 注册节点信息
+message S2S_RegNodeInfo
+{
+    required sql_ret_cluster_node_info cluster_node_info        = 1;
+}
+
+// 请求节点信息
+message GM2S_AskNodeInfo
+{
+    required bytes  request_node_name   = 1;
+    required bool   is_online           = 2;
+}
+// 回复节点信息
+message S2GM_RetNodeInfo
+{
+    required bytes                      request_node_name       = 1;
+    repeated sql_ret_cluster_node_info  list_cluster_node_info  = 2;
+}
+
+// 请求玩家信息
+message GM2S_AskPlayerInfo
+{
+    required bytes  request_node_name   = 1;
+    required bool   is_online           = 2;
+}
+
+// 回复玩家信息
+message S2GM_RetPlayerInfo
+{
+    required bytes          request_node_name   = 1;
+    repeated universal_data list_roleinfo       = 2;
+}
+
+// 请求场景信息
+message GM2S_AskSceneInfo
+{
+    required bool is_online             = 1;
+}
+// 回复场景信息
+message S2GM_RetSceneInfo
+{
+    repeated sql_ret_cluster_node_info list_cluster_node_info   = 1;
+}
+
+// 踢人信息
+message GM2S_KickPlayer
+{
+    required sint64 role_index = 1;
+}
+
+// 关闭通知
+message GM2S_Close
+{
+    required sint64 role_index = 1;
+}
+
+
+
+
+
+
+// 检查账号是否存在
+message S2S_Ask_CheckAccount
+{
+    required bytes  account         = 1;
+    optional int64  ret_unitindex   = 2;
+    optional int64  ret_intaddr     = 3;
+}
+message S2S_Ret_CheckAccount
+{
+    required bytes  ret_code    = 1;
+    required bytes  account     = 2;
+    required int64  account_key = 3;
+}
+
+// 登录
+message S2S_Ask_Login
+{
+    required bytes  account         = 1;
+    required bytes  password        = 2;
+    required bytes  sid             = 3;
+    optional bytes  ip              = 4;
+    optional int64  ret_unitindex   = 5;
+    optional int64  ret_intaddr     = 6;
+    optional int64  account_key     = 7;
+}
+message S2S_Ret_Login
+{
+    required bytes  ret_code    = 1;
+    required bool   re_login    = 2;
+    required bytes  account     = 3;
+    optional int64  account_key = 4;
+}

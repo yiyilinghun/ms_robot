@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\MsBase\UD_Base.cpp" />
+    <ClCompile Include="..\PJ_Common\CommonResDef.cpp" />
+    <ClCompile Include="..\PJ_Common\GlobalPlayer.cpp" />
+    <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="ClassView.cpp" />
+    <ClCompile Include="CntrItem.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="Precompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="PropertiesWnd.cpp" />
+    <ClCompile Include="RobotApp.cpp" />
+    <ClCompile Include="RobotDoc.cpp" />
+    <ClCompile Include="RobotList.cpp" />
+    <ClCompile Include="RobotPlayer.cpp" />
+    <ClCompile Include="RobotView.cpp" />
+    <ClCompile Include="ViewTree.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MsBase\UD_Base.h" />
+    <ClInclude Include="..\PJ_Common\CommonResDef.h" />
+    <ClInclude Include="..\PJ_Common\GlobalPlayer.h" />
+    <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="ClassView.h" />
+    <ClInclude Include="CntrItem.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="Precompiled.h" />
+    <ClInclude Include="PropertiesWnd.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RobotApp.h" />
+    <ClInclude Include="RobotDoc.h" />
+    <ClInclude Include="RobotList.h" />
+    <ClInclude Include="RobotPlayer.h" />
+    <ClInclude Include="RobotView.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ViewTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFC_Robot.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\classview.bmp" />
+    <Image Include="res\classview_hc.bmp" />
+    <Image Include="res\class_view.ico" />
+    <Image Include="res\class_view_hc.ico" />
+    <Image Include="res\explorer.bmp" />
+    <Image Include="res\explorer_hc.bmp" />
+    <Image Include="res\fileview.bmp" />
+    <Image Include="res\fileview_hc.bmp" />
+    <Image Include="res\file_view.ico" />
+    <Image Include="res\file_view_hc.ico" />
+    <Image Include="res\menuimages.bmp" />
+    <Image Include="res\menuimages_hc.bmp" />
+    <Image Include="res\MFC_Robot.ico" />
+    <Image Include="res\MFC_RobotDoc.ico" />
+    <Image Include="res\output_wnd.ico" />
+    <Image Include="res\output_wnd_hc.ico" />
+    <Image Include="res\properties.bmp" />
+    <Image Include="res\properties_hc.bmp" />
+    <Image Include="res\properties_wnd.ico" />
+    <Image Include="res\properties_wnd_hc.ico" />
+    <Image Include="res\sort.bmp" />
+    <Image Include="res\sort_hc.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="UserImages.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MFC_Robot.reg" />
+    <None Include="res\MFC_Robot.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{FB8CAFC8-3732-4BD4-802B-ADF57E6127F6}</ProjectGuid>
+    <RootNamespace>My20Robot</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>MFCProj</Keyword>
+    <ProjectName>Robot</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\PJ_Common\;..\MsBase\;..\MsBase\Lua\;..\MsBase\Proto\src\;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\PJ_Common\;..\MsBase\;..\MsBase\Lua\;..\MsBase\Proto\src\;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>..\PJ_Common\;..\MsBase\;..\MsBase\Lua\;..\MsBase\Proto\src\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>..\PJ_Common\;..\MsBase\;..\MsBase\Lua\;..\MsBase\Proto\src\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(OutputPath)</AdditionalLibraryDirectories>
+      <StackReserveSize>104857600</StackReserveSize>
+      <StackCommitSize>104857600</StackCommitSize>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(OutputPath)</AdditionalLibraryDirectories>
+      <StackReserveSize>104857600</StackReserveSize>
+      <StackCommitSize>104857600</StackCommitSize>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutputPath)</AdditionalLibraryDirectories>
+      <StackReserveSize>104857600</StackReserveSize>
+      <StackCommitSize>104857600</StackCommitSize>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OutputPath)</AdditionalLibraryDirectories>
+      <StackReserveSize>104857600</StackReserveSize>
+      <StackCommitSize>104857600</StackCommitSize>
+      <LinkErrorReporting>NoErrorReport</LinkErrorReporting>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

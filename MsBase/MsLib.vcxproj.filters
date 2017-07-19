@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00.预编译头">
+      <UniqueIdentifier>{cb6e2f1f-0a80-466d-857e-1fea9072a02f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.基础定义">
+      <UniqueIdentifier>{37ec017b-4cfd-4a8f-ba5d-f4d0d2e52850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.渲染引擎">
+      <UniqueIdentifier>{34eb85bd-e195-4587-aace-27fc37a5637e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.渲染引擎\Gif">
+      <UniqueIdentifier>{4aae9e3b-068a-4c87-b162-03263a2709c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.渲染引擎\Jpg">
+      <UniqueIdentifier>{d95b20cd-4eae-4df0-9569-e0cd4d01b3cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="20.网络引擎">
+      <UniqueIdentifier>{26c1d767-ec68-4328-8bb9-050c9ffba6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="22.线程管理">
+      <UniqueIdentifier>{bd87dde8-1443-4e94-8389-584cc90b50b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="24.完成端口">
+      <UniqueIdentifier>{7c616b6b-14d5-4e0b-948c-cf05648af5b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="50.服务管理">
+      <UniqueIdentifier>{2e6df3ae-78af-4f36-ae85-900a0469ae26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="60.数据管理">
+      <UniqueIdentifier>{d65656f8-4cd1-4c20-a7ad-0b1f54ab7cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="73.压缩管理">
+      <UniqueIdentifier>{eae2b20a-b40f-4324-a3a2-ea047b41ea11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="73.压缩管理\ZLib">
+      <UniqueIdentifier>{1151ff66-073f-4a11-9580-c6d7ebde6644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="25.群集管理">
+      <UniqueIdentifier>{f16ca04c-fbc1-43bf-a211-12c61cff1790}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Precompiled.cpp">
+      <Filter>00.预编译头</Filter>
+    </ClCompile>
+    <ClCompile Include="MsAssertx.cpp">
+      <Filter>01.基础定义</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>02.渲染引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager_Sound.cpp">
+      <Filter>02.渲染引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager_Sprite.cpp">
+      <Filter>02.渲染引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManagerRect.cpp">
+      <Filter>02.渲染引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="gif_read.cpp">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClCompile>
+    <ClCompile Include="gif_write.cpp">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClCompile>
+    <ClCompile Include="Quantizer.cpp">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClCompile>
+    <ClCompile Include="bmp.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="jpg_decompress.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="decode.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="huffman.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="idct.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="idct2d.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="Jpeg.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="pack.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="quanty.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="rgb.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="segment.cpp">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetPing.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetServer.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsWebClient.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsWebServer.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetPacket.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetTerminal.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsThread.cpp">
+      <Filter>22.线程管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCPUnit.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCP_OL.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCPManager.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterNode.cpp">
+      <Filter>25.群集管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsBaseService.cpp">
+      <Filter>50.服务管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsService.cpp">
+      <Filter>50.服务管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNTFS.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsXmlReader.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsRegistry.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_Base.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFunction.cpp">
+      <Filter>73.压缩管理</Filter>
+    </ClCompile>
+    <ClCompile Include="_unzip.cpp">
+      <Filter>73.压缩管理</Filter>
+    </ClCompile>
+    <ClCompile Include="_zip.cpp">
+      <Filter>73.压缩管理</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\adler32.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\compress.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\crc32.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\deflate.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzclose.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzlib.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzread.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzwrite.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\infback.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inffast.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inflate.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inftrees.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\ioapi.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\trees.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\uncompr.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\unzip.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\zutil.c">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MsBase.cpp">
+      <Filter>01.基础定义</Filter>
+    </ClCompile>
+    <ClCompile Include="MsXmlProtoAssist.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterTerminal.cpp">
+      <Filter>25.群集管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterNetServer.cpp">
+      <Filter>25.群集管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterNetClient.cpp">
+      <Filter>25.群集管理</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManagerSound.cpp">
+      <Filter>02.渲染引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetClient.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsJson.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXml.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h">
+      <Filter>00.预编译头</Filter>
+    </ClInclude>
+    <ClInclude Include="MsMulDictionary.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsSet.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsAssertx.h">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsDictionary.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsList.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsQueue.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsVector.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>02.渲染引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager_Sprite.h">
+      <Filter>02.渲染引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManagerRect.h">
+      <Filter>02.渲染引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="gif_read.h">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClInclude>
+    <ClInclude Include="gif_write.h">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Quantizer.h">
+      <Filter>02.渲染引擎\Gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Jpeg.h">
+      <Filter>02.渲染引擎\Jpg</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetPing.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsWebClient.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsWebServer.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetClient.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetPacket.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetServer.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetTerminal.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsThread.h">
+      <Filter>22.线程管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPDef.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPUnit.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCP_OL.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPManager.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterNode.h">
+      <Filter>25.群集管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBaseService.h">
+      <Filter>50.服务管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsService.h">
+      <Filter>50.服务管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNTFS.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsXmlReader.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsRegistry.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Base.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFunction.h">
+      <Filter>73.压缩管理</Filter>
+    </ClInclude>
+    <ClInclude Include="_unzip.h">
+      <Filter>73.压缩管理</Filter>
+    </ClInclude>
+    <ClInclude Include="_zip.h">
+      <Filter>73.压缩管理</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\crc32.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\crypt.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\deflate.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\gzguts.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\inffast.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\inffixed.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\inflate.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\inftrees.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\ioapi.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\trees.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\unzip.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\zconf.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\zconf.in.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\zip.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\zlib.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="HGE\ZLIB\zutil.h">
+      <Filter>73.压缩管理\ZLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBase.h">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsXmlProtoAssist.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterTerminal.h">
+      <Filter>25.群集管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterNetServer.h">
+      <Filter>25.群集管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterNetClient.h">
+      <Filter>25.群集管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsUnorderedDictionary.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsUnorderedSet.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsJson.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBlockDict.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBlockTestDict.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXml.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="db_universal_data.sql">
+      <Filter>60.数据管理</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\code_generator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\command_line_interface.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_enum.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_enum_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_extension.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_generator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_helpers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_message.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_message_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_primitive_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\cpp\cpp_string_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_doc_comment.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_enum.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_enum_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_extension.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_generator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_helpers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_message.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_message_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_primitive_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\java\java_string_field.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\plugin.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\plugin.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\python\python_generator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\subprocess.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\src\google\protobuf\compiler\zip_writer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\code_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\command_line_interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_enum_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_extension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_message_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_primitive_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\cpp\cpp_string_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_doc_comment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_enum_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_extension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_message_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_primitive_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\java\java_string_field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\plugin.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\python\python_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\subprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\src\google\protobuf\compiler\zip_writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{cfc24d3a-a285-498a-af1b-5619466efb82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5056462d-06c5-4e44-ada8-c8a2bb5c369c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

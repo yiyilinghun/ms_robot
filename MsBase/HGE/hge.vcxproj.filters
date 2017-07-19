@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="hge.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="ini.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="power.cpp" />
+    <ClCompile Include="resource.cpp" />
+    <ClCompile Include="system.cpp" />
+    <ClCompile Include="hgeanim.cpp" />
+    <ClCompile Include="hgecolor.cpp" />
+    <ClCompile Include="hgedistort.cpp" />
+    <ClCompile Include="hgefader.cpp" />
+    <ClCompile Include="hgefont.cpp" />
+    <ClCompile Include="hgegui.cpp" />
+    <ClCompile Include="hgeguictrls.cpp" />
+    <ClCompile Include="hgeparticle.cpp" />
+    <ClCompile Include="hgepmanager.cpp" />
+    <ClCompile Include="hgerect.cpp" />
+    <ClCompile Include="hgeresource.cpp" />
+    <ClCompile Include="hgesprite.cpp" />
+    <ClCompile Include="hgestrings.cpp" />
+    <ClCompile Include="hgevector.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="resources.cpp" />
+    <ClCompile Include="ZLIB\adler32.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\compress.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\crc32.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\deflate.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\gzclose.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\gzlib.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\gzread.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\gzwrite.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\infback.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\inffast.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\inflate.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\inftrees.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\ioapi.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\trees.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\uncompr.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\unzip.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZLIB\zutil.c">
+      <Filter>zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hge_def.h" />
+    <ClInclude Include="hge.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="resources.h" />
+    <ClInclude Include="ZLIB\crc32.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\crypt.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\deflate.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\gzguts.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\inffast.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\inffixed.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\inflate.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\inftrees.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\ioapi.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\trees.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\unzip.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\zconf.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\zconf.in.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\zip.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\zlib.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZLIB\zutil.h">
+      <Filter>zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="bass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="zLib">
+      <UniqueIdentifier>{51984c3b-5272-48c2-ab22-40c2d4fa7454}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bmp.cpp" />
+    <ClCompile Include="decode.cpp">
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AssemblyCode</AssemblerOutput>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AssemblyCode</AssemblerOutput>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AssemblyCode</AssemblerOutput>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyCode</AssemblerOutput>
+    </ClCompile>
+    <ClCompile Include="gif_read.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4996;4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4996;4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4996;4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4996;4244</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="gif_write.cpp" />
+    <ClCompile Include="HGE\ZLIB\adler32.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\compress.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\crc32.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\deflate.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzclose.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzlib.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzread.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\gzwrite.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\infback.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inffast.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inflate.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\inftrees.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\ioapi.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\trees.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\uncompr.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\unzip.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="HGE\ZLIB\zutil.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4131;4127;4244;4996;4100;4057</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="huffman.cpp" />
+    <ClCompile Include="idct.cpp" />
+    <ClCompile Include="idct2d.cpp" />
+    <ClCompile Include="Jpeg.cpp" />
+    <ClCompile Include="jpg_decompress.cpp" />
+    <ClCompile Include="MsAssertx.cpp" />
+    <ClCompile Include="MsBase.cpp" />
+    <ClCompile Include="MsBaseService.cpp" />
+    <ClCompile Include="MsClusterNetClient.cpp" />
+    <ClCompile Include="MsClusterNetServer.cpp" />
+    <ClCompile Include="MsClusterNode.cpp" />
+    <ClCompile Include="MsClusterTerminal.cpp" />
+    <ClCompile Include="MsIOCPManager.cpp" />
+    <ClCompile Include="MsIOCPUnit.cpp" />
+    <ClCompile Include="MsIOCP_OL.cpp" />
+    <ClCompile Include="MsJson.cpp" />
+    <ClCompile Include="MsNetClient.cpp" />
+    <ClCompile Include="MsNetPacket.cpp" />
+    <ClCompile Include="MsNetPing.cpp" />
+    <ClCompile Include="MsNetServer.cpp" />
+    <ClCompile Include="MsNetTerminal.cpp" />
+    <ClCompile Include="MsNTFS.cpp" />
+    <ClCompile Include="MsRegistry.cpp" />
+    <ClCompile Include="MsService.cpp" />
+    <ClCompile Include="MsThread.cpp" />
+    <ClCompile Include="MsWebClient.cpp" />
+    <ClCompile Include="MsWebServer.cpp" />
+    <ClCompile Include="MsXmlProtoAssist.cpp" />
+    <ClCompile Include="MsXmlReader.cpp" />
+    <ClCompile Include="pack.cpp" />
+    <ClCompile Include="Precompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Quantizer.cpp" />
+    <ClCompile Include="quanty.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="RenderManagerRect.cpp" />
+    <ClCompile Include="RenderManagerSound.cpp" />
+    <ClCompile Include="RenderManager_Sound.cpp" />
+    <ClCompile Include="RenderManager_Sprite.cpp" />
+    <ClCompile Include="rgb.cpp" />
+    <ClCompile Include="segment.cpp" />
+    <ClCompile Include="TinyXml.cpp" />
+    <ClCompile Include="UD_Base.cpp" />
+    <ClCompile Include="ZipFunction.cpp" />
+    <ClCompile Include="_unzip.cpp">
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="_zip.cpp">
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4091;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4091;4996</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MsBlockDict.hpp" />
+    <ClInclude Include="gif_read.h" />
+    <ClInclude Include="gif_write.h" />
+    <ClInclude Include="HGE\ZLIB\crc32.h" />
+    <ClInclude Include="HGE\ZLIB\crypt.h" />
+    <ClInclude Include="HGE\ZLIB\deflate.h" />
+    <ClInclude Include="HGE\ZLIB\gzguts.h" />
+    <ClInclude Include="HGE\ZLIB\inffast.h" />
+    <ClInclude Include="HGE\ZLIB\inffixed.h" />
+    <ClInclude Include="HGE\ZLIB\inflate.h" />
+    <ClInclude Include="HGE\ZLIB\inftrees.h" />
+    <ClInclude Include="HGE\ZLIB\ioapi.h" />
+    <ClInclude Include="HGE\ZLIB\trees.h" />
+    <ClInclude Include="HGE\ZLIB\unzip.h" />
+    <ClInclude Include="HGE\ZLIB\zconf.h" />
+    <ClInclude Include="HGE\ZLIB\zconf.in.h" />
+    <ClInclude Include="HGE\ZLIB\zip.h" />
+    <ClInclude Include="HGE\ZLIB\zlib.h" />
+    <ClInclude Include="HGE\ZLIB\zutil.h" />
+    <ClInclude Include="Jpeg.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="MsAssertx.h" />
+    <ClInclude Include="MsBase.h" />
+    <ClInclude Include="MsBaseService.h" />
+    <ClInclude Include="MsBlockTestDict.hpp" />
+    <ClInclude Include="MsClusterNetClient.h" />
+    <ClInclude Include="MsClusterNetServer.h" />
+    <ClInclude Include="MsClusterNode.h" />
+    <ClInclude Include="MsClusterTerminal.h" />
+    <ClInclude Include="MsDictionary.hpp" />
+    <ClInclude Include="MsIOCPDef.h" />
+    <ClInclude Include="MsIOCPManager.h" />
+    <ClInclude Include="MsIOCPUnit.h" />
+    <ClInclude Include="MsIOCP_OL.h" />
+    <ClInclude Include="MsJson.h" />
+    <ClInclude Include="MsList.hpp" />
+    <ClInclude Include="MsMulDictionary.hpp" />
+    <ClInclude Include="MsNetClient.h" />
+    <ClInclude Include="MsNetPacket.h" />
+    <ClInclude Include="MsNetPing.h" />
+    <ClInclude Include="MsNetServer.h" />
+    <ClInclude Include="MsNetTerminal.h" />
+    <ClInclude Include="MsNTFS.h" />
+    <ClInclude Include="MsQueue.hpp" />
+    <ClInclude Include="MsRegistry.h" />
+    <ClInclude Include="MsService.h" />
+    <ClInclude Include="MsSet.hpp" />
+    <ClInclude Include="MsThread.h" />
+    <ClInclude Include="MsUnorderedDictionary.hpp" />
+    <ClInclude Include="MsUnorderedSet.hpp" />
+    <ClInclude Include="MsVector.hpp" />
+    <ClInclude Include="MsWebClient.h" />
+    <ClInclude Include="MsWebServer.h" />
+    <ClInclude Include="MsXmlProtoAssist.h" />
+    <ClInclude Include="MsXmlReader.h" />
+    <ClInclude Include="Precompiled.h" />
+    <ClInclude Include="Quantizer.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="RenderManagerRect.h" />
+    <ClInclude Include="RenderManager_Sprite.h" />
+    <ClInclude Include="TinyXml.h" />
+    <ClInclude Include="UD_Base.h" />
+    <ClInclude Include="ZipFunction.h" />
+    <ClInclude Include="_unzip.h" />
+    <ClInclude Include="_zip.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="db_universal_data.sql" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{B79907A7-42A5-46A7-AC70-25D8074CF5CA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>My002MsLib</RootNamespace>
+    <ProjectName>MsLib</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>.\;.\Lua\;.\HGE\;.\Proto\;.\Proto\src\;..\PJ_Common\;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>.\;.\Lua\;.\HGE\;.\Proto\;.\Proto\src\;..\PJ_Common\;$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>.\;.\Lua\;.\HGE\;.\Proto\;.\Proto\src\;..\PJ_Common\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <IncludePath>.\;.\Lua\;.\HGE\;.\Proto\;.\Proto\src\;..\PJ_Common\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ErrorReporting>None</ErrorReporting>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <ErrorReporting>NoErrorReport</ErrorReporting>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

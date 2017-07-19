@@ -1,0 +1,417 @@
+syntax = "proto2";
+import "EnumDef.proto";
+import "Common.proto";
+import "Task.proto";
+
+// 注册账号
+message sql_result_register
+{
+    required int32 ret_code  = 1;
+}
+
+// 角色数量
+message sql_ret_role_count
+{
+    required bool   is_ok       = 1;
+    repeated sint64 role_index  = 2;
+}
+
+// SQL返回节点信息
+message sql_ret_cluster_node_info
+{
+    required sint64 node_index      = 1;    // 节点索引
+    required sint64 intaddr         = 2;    // 节点地址
+    required sint64 unit_next_index = 3;    // 下个索引
+    required sint64 cpu_pressure    = 4;    // CPU压力
+    required bool   is_online       = 5;    // 是否在线
+}
+
+// 登录账号
+message sql_check_account_key
+{
+    required bytes  account     = 1;
+}
+message sql_result_login
+{
+    required bytes  account                 = 1;
+    required sint64 create_time             = 2;
+    required sint64 login_time              = 3;
+    required bool   can_login_flag          = 4;
+    required bool   can_profit_flag         = 5;
+    required bool   can_senior_operation    = 6;
+}
+
+// 账号上线
+message sql_result_role_online
+{
+    required sint32 count = 1;
+}
+
+// 账号下线
+message sql_result_role_offline
+{
+    required sint32 count = 1;
+}
+
+// 获取角色数量
+message sql_result_role_count
+{
+    required sint64 role_index = 1;
+}
+
+// 创建角色
+message sql_result_createrole
+{
+    required sint32 ret_code  = 1;
+}
+
+// 存盘角色
+message sql_result_save_role
+{
+    required int32 ret_code  = 2;
+}
+
+// 道具背包
+message item
+{
+    optional sint64 item_index      = 1;
+    optional bytes  item_type       = 2;
+    optional uint32 item_pos        = 3;
+    optional bytes  item_name       = 4;
+    optional sint32 item_count      = 5;
+    optional bytes  item_res_file   = 6;
+    optional uint32 item_res_key    = 7;
+    optional universal_data ex_info = 8;
+}
+
+// 道具字典
+message dict_item
+{
+    repeated sint64 item_index  = 1;
+    repeated item   item_info   = 2;
+}
+
+//// 装备背包
+//message bag_equip
+//{
+//    required sint64 equip_index             = 1;
+//    required sint32 equip_id                = 2;
+//    required sint32 additional_hp_point     = 3;
+//    required sint32 additional_mp_point     = 4;
+//    required sint32 additional_ap_point     = 5;
+//    required sint32 additional_sp_point     = 6;
+//    required sint32 additional_surplus_point= 7;
+//}
+//
+//// 关键背包
+//message bag_important
+//{
+//    required sint64 index_key           = 1;
+//    required sint64 important_index     = 2;
+//}
+
+//// 装备
+//message equip
+//{
+//    required sint64 index_key               = 1;
+//    required sint32 equip_id                = 2;
+//    required sint32 level                   = 3;
+//    required sint32 attack                  = 4;
+//    required E_EQUIP_SITE_TYPE site_type    = 5;
+//    
+//}
+
+// 套装相关
+message suit_goods_info
+{
+    required sint32 can_buy_suit_shop_id = 1;
+    required bool   is_buy          = 2;
+}
+message suit_info
+{
+    required sint32 suit_id                     = 1;
+    required sint64 suit_unixtime_time_out_stamp= 2;
+    required sint32 suit_duration_type          = 3;
+}
+message list_role_suit_info
+{
+    repeated suit_goods_info list_buy_suit      = 1;
+    required sint64 suit_shop_last_update_time  = 2;
+    optional suit_info current_suit             = 3;
+    repeated suit_info list_have_suits          = 4;
+}
+
+// 表情相关
+message face_goods_info
+{
+    required sint32 can_buy_face_shop_id    = 1;
+    required bool   is_buy                  = 2;
+    required sint32 face_shop_index         = 3;
+}
+message face_info
+{
+    required sint32 face_id                         = 1;
+    required sint64 face_unixtime_time_out_stamp    = 2;
+    required sint32 face_duration_type              = 3;
+}
+
+// 副本相关
+// 关卡列表
+message level_info
+{
+    required sint32     id          = 1;
+    required sint32     passed      = 2;
+}
+
+// 宝箱奖励
+message reward_box
+{
+    required sint32     id          = 1;
+    required sint32     get         = 2;
+}
+
+// 章节列表
+message chapter_info
+{
+    required sint32     id          = 1;
+    repeated level_info list_dup         = 2;
+    repeated reward_box list_box         = 3;
+    required sint32     get_reward  = 4;
+}
+
+message list_role_face_info
+{
+    repeated face_goods_info list_original_buy_face     = 1;
+    repeated face_goods_info list_discount_buy_face     = 2;
+    required sint64 face_shop_last_update_time          = 3;
+    required sint64 face_shop_last_manual_update_time   = 4;
+    required sint32 face_shop_manual_update_count       = 5;
+    optional face_info current_face                     = 6;
+    repeated face_info list_have_faces                  = 7;
+}
+
+// 技能相关
+message role_info_skill
+{
+    optional bytes defaule_skill        = 1;
+    repeated bytes list_skill_name      = 2;
+    repeated universal_data list_skill  = 3;
+}
+
+// 好友相关
+message game_friend
+{
+    required sint64 role_index  = 1;
+    required sint32 level       = 2;
+    required bytes  nick_name   = 3;
+    required sint32 suit_id     = 4;
+    required sint32 face_id     = 5;
+    required sint32 weapon_id   = 6;
+    required sint32 helmet_id   = 7;
+    required bytes  state       = 8;    // "yes"(正式好友), "no"(不是好友), "o+m"(别人加的我), "m+o"(我加的别人)
+    required sint64 time        = 9;
+    required bool   is_online   = 10;
+}
+// 好友字典
+message dict_game_friend
+{
+    repeated sint64 list_role_index     = 1;
+    repeated game_friend list_friends   = 2;
+}
+
+// 召唤兽相关
+message summonpet
+{
+    required sint64 role_index              = 1;    // 索引
+    required sint32 reborn_sum              = 2;    // 转生次数
+    required role_info_public public_info   = 3;    // 公有信息
+    optional role_info_memory memory_info   = 4;    // 公有信息
+    required role_info_attr attr_info       = 5;    // 属性
+    required role_info_skill skill_info     = 7;    // 技能
+    optional role_info_reward reward_info   = 8;    // 奖励信息
+    required bool   is_follow               = 9;    // 是否跟随
+    required bool   is_comrade              = 10;   // 是否参战
+}
+// 召唤兽字典
+message dict_summonpet
+{
+    repeated sint64     list_role_index     = 1;
+    repeated summonpet  list_summonpet_info = 2;
+}
+
+// 任务相关
+message task
+{
+    repeated sint32 list_completed_task_list     = 1;
+    repeated task_info list_can_accept_task_list = 2;
+    repeated task_info list_accepted_task_list   = 3;
+}
+
+// 成就相关
+message success
+{
+
+}
+
+// 指引相关
+message guide
+{
+
+}
+
+// 配置信息
+message role_info_config
+{
+    optional bool   follower_auto_comrade   = 2;   // 跟随自动参战
+}
+
+message times
+{
+    // 套装商店最后刷新时间
+    //optional sint64 suit_shop_last_update_time = 1;
+
+    // 表情商店最后刷新时间
+    optional sint64 face_shop_last_update_time = 2;
+}
+
+// 参战字典
+message dict_comrade_role
+{
+    repeated sint32 keys    = 1;
+    repeated sint64 values  = 2;
+}
+
+message role_info_memory
+{
+    repeated sint64             list_follow_role= 1;    // 跟随列表
+    optional dict_comrade_role  comrade_info    = 2;    // 参战信息
+    optional bool   is_on_enter_game            = 4;    // 是否触发进入游戏事件
+    optional sint32 battle_team_index           = 5;    // 战斗位置索引
+}
+
+// 角色公有基础信息
+message role_info_public
+{
+    optional sint64 role_index              = 1;    // 索引
+    optional sint64 team_index              = 2;    // 队伍索引
+    optional sint32 team_pos                = 3;    // 队伍位置
+    optional sint32 reborn_sum              = 4;    // 转生次数
+    optional E_OBJECT_TYPE object_type      = 5[default = EOT_INVALID]; // 对象类型
+
+    optional bytes  racial                  = 10;   // 种族
+    optional bytes  gender                  = 11;   // 性别
+    optional universal_data  object_res     = 12;   // 对象资源
+
+    optional bytes  head_icon_file_small    = 20;   // 小头像
+    optional uint32 head_icon_key_small     = 21;   // 小头像
+    optional bytes  head_icon_file_medium   = 22;   // 中头像
+    optional uint32 head_icon_key_medium    = 23;   // 中头像
+    optional bytes  head_icon_file_big      = 24;   // 大头像
+    optional uint32 head_icon_key_big       = 25;   // 大头像
+    optional bytes  head_icon_file_portrait = 26;   // 肖像
+    optional uint32 head_icon_key_portrait  = 27;   // 肖像
+
+    optional bytes  nick_name               = 100;  // 昵称
+    optional sint64 level                   = 101;  // 等级
+
+    optional sint32 scene_id                = 201;  // 场景Id
+    optional sint32 dir                     = 202;  // 朝向
+    optional float  pos_x                   = 203;  // 坐标X
+    optional float  pos_y                   = 204;  // 坐标Y
+}
+
+// 角色私有基础信息
+message role_info_private
+{
+    required sint64 battle_index    = 1;    // 战斗索引
+    required sint64 game_coin       = 2;    // 游戏币
+    required sint32 stamina         = 3;    // 体力值
+    required sint64 diamond_coin    = 4;    // 钻石币
+    required sint32 skill_point     = 5;    // 技能点
+    required sint32 vip_level       = 6;    // VIP等级
+
+    repeated sint64 list_watcher_role_index = 50;   // 关注中..
+
+    optional bytes  phone           = 100;  // 电话
+    optional bytes  email           = 101;  // 邮箱
+    optional bytes  qq              = 102;  // QQ号码
+    optional bytes  platform_type   = 103;  // 平台信息(操作系统,32位,64位等)
+}
+
+// 角色属性
+message role_info_attr
+{
+    repeated sint32 attr_key    = 1;
+    repeated sint64 attr_value  = 2;
+}
+
+// 奖励列表
+message role_info_reward
+{
+    repeated sint64     list_exp     = 10;  // 经验列表
+    repeated sint64     list_money   = 11;  // 金钱列表
+    required dict_item  list_item    = 12;  // 道具列表
+}
+
+// 角色扩展属性1
+message roleinfo_extend_attr_1
+{
+    optional sint64 test_data   = 1;
+}
+
+// 角色扩展属性2
+message roleinfo_extend_attr_2
+{
+    optional sint64 test_data   = 1;
+}
+
+// 角色扩展属性3
+message roleinfo_extend_attr_3
+{
+    optional sint64 test_data   = 1;
+}
+
+// 角色扩展属性4
+message roleinfo_extend_attr_4
+{
+    optional sint64 test_data   = 1;
+}
+
+// 角色扩展属性5
+message roleinfo_extend_attr_5
+{
+    optional sint64 test_data   = 1;
+}
+
+// 角色信息
+message role_info
+{
+    required sint64 role_index  = 1;    // 索引
+    required bytes  account     = 2;    // 账号
+
+    required role_info_public   public_info     = 3;    // 公有信息
+    optional role_info_private  private_info    = 4;    // 私有信息
+    optional role_info_attr     attr_info       = 5;    // 属性信息
+    optional role_info_memory   memory_info     = 6;    // 内存信息
+    optional role_info_skill    skill_info      = 7;    // 技能信息
+    optional role_info_reward   reward_info     = 8;    // 奖励信息
+    optional role_info_config   config_info     = 9;    // 配置信息
+    optional sint32             bag_page_count  = 10;   // 背包页数
+    optional dict_item  items   = 103;  // 背包
+    optional dict_item  equips  = 106;  // 装备
+
+    optional dict_summonpet     summonpets  = 202;  // 召唤兽信息
+    optional dict_game_friend   friends     = 203;  // 好友信息
+
+    optional task           task_info       = 204;  // 任务信息
+    optional success     list_success       = 205;  // 成就信息
+    optional guide       list_guide         = 206;  // 指引信息
+    optional times       times              = 208;  // 时间信息
+
+    // 扩展属性
+    optional roleinfo_extend_attr_1 extend_attr1    = 301;
+    optional roleinfo_extend_attr_2 extend_attr2    = 302;
+    optional roleinfo_extend_attr_3 extend_attr3    = 303;
+    optional roleinfo_extend_attr_4 extend_attr4    = 304;
+    optional roleinfo_extend_attr_5 extend_attr5    = 305;
+}

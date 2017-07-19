@@ -1,0 +1,159 @@
+syntax = "proto2";
+import "EnumDef.proto";
+
+// 通用存储
+message universal_data
+{
+    optional int64 key  = 1;
+    optional bytes type = 2;
+    optional bytes name = 3;
+    optional int32 code = 4;
+
+    repeated bool   b   = 10;
+    repeated float  f   = 11;
+    repeated double d   = 12;
+    repeated sint32 e   = 13;
+    repeated sint32 i32 = 14;
+    repeated sint64 i64 = 15;
+    repeated uint32 u32 = 16;
+    repeated uint64 u64 = 17;
+    repeated bytes  str = 18;
+
+    repeated universal_data sub = 100;
+}
+
+// 物品列表
+message item_config
+{
+    required uint32 item_id     = 1;
+    required uint32 item_count  = 2;
+}
+
+message Sql_Result_Login
+{
+    required int64  id          = 1;
+    required bytes  username    = 2;
+    required bytes  password    = 3;
+    required int64  createtime  = 4;
+    required int64  logintime   = 5;
+    required uint64 phone       = 6;
+    required int64  email       = 7;
+}
+
+message GameSkillActionInfos
+{
+    required bytes  res_file_name   = 1;
+    required sint32 action_key      = 2;
+    required sint32 action_wav      = 3;
+}
+
+// 表情商店信息
+message GameShopAvatarInfo
+{
+    required FACE_SHOP_TYPE face_shop_type  = 1[default = FST_NORMAL];
+    required sint32 goods_index             = 2;
+    required sint32 face_id                 = 3;
+    required bool   already_buy             = 4;
+}
+
+
+// 奖励信息
+message reward_info
+{
+    required sint32 id      = 1;
+    required sint32 count   = 2;
+}
+
+// 战斗相关数据结构
+
+// 战斗单位属性
+message BattleHeroAttribute
+{
+    required sint32 max_hp  = 1;    // 最大血量值
+    required sint32 atk     = 2;    // 攻击值
+    required sint32 def     = 3;    // 防御值
+    required sint32 speed   = 4;    // 行动速度
+    required sint32 crit    = 5;    // 暴击值
+    required sint32 block   = 6;    // 反震值
+    required sint32 act     = 7;    // 初始行动值
+}
+
+// 战斗单位数据
+message BattleHeroData
+{
+    required sint32 level                       = 1;    // 等级
+    required bytes  name                        = 2;    // 名称
+    required sint32 position                    = 3;    // 阵型位置(1~9)
+
+    required BattleHeroAttribute fight_attr     = 4;    // 战斗属性
+}
+
+// 战斗波次
+message BattleHeroGroup
+{
+    repeated BattleHeroData list_players    = 1;    // 玩家信息
+}
+
+// 战斗一方详细数据
+message BattleFightData
+{
+    repeated BattleHeroGroup list_groups    = 1;    // 多波战斗
+}
+
+// 战斗双方数据
+message BattleData
+{
+    required BattleFightData attacker   = 1;    // 攻击方
+    required BattleFightData defender   = 2;    // 防守方
+}
+
+// 战斗事件数据
+message BattleEventData
+{
+    optional sint32 position    = 1;    // 玩家位置
+    optional sint32 box_id      = 2;    // 掉落宝箱
+};
+
+// 战斗事件
+message proto_BattleEvent
+{
+    required E_BATTLE_LOG_TYPE log_type     = 1[default = LOGT_USER_CARD];  // 事件类型
+    required E_BATTLE_CAMP_TYPE camp_type   = 2[default = CAMP_TYPE_OWN];   // 士兵阵营
+    required float time_tick                = 3;    // 发生该事件的时间点
+    optional BattleEventData data           = 4;    // 时间数据
+}
+
+// 战斗日志
+message BattleLog
+{
+    required E_BATTLE_TYPE battle_type      = 1[default = EBT_PVE]; // 战斗类型(PVE、PVP)
+    required sint32 random_seed             = 2;    // 战斗随机数种子
+    optional sint32 chapter_id              = 3;    // 章节ID,只对PVE有效
+    optional sint32 level_id                = 4;    // 关卡ID,只对PVE有效
+
+    repeated proto_BattleEvent list_events  = 5;    // 战斗事件
+}
+
+// 战斗结果数据
+message BattleResultData
+{
+    required E_BATTLE_RESULT_TYPE result    = 1[default = EBRT_DOGFULL];    // 战斗结果
+    repeated sint32 list_atk_hp             = 2;    // 攻击方血量
+    required sint32 def_hp                  = 3;    // 攻击方血量
+}
+
+// 寻路数据
+message FindWayPath
+{
+    required uint32 tar         = 1;
+    repeated uint32 pos         = 2;
+}
+message FindWayInfo
+{
+    required uint32 src         = 1;
+    repeated FindWayPath path   = 2;
+}
+message FindWayData
+{
+    repeated FindWayInfo data   = 1;
+}

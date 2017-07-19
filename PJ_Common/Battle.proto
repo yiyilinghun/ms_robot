@@ -1,0 +1,205 @@
+syntax = "proto2";
+import "EnumDef.proto";
+import "Common.proto";
+import "Database.proto";
+
+// 战斗单位信息
+message BattleUnitBaseInfo
+{
+    required sint64 role_index          = 1;
+    required bytes  object_name         = 2;
+    required bytes  display_name        = 3;
+    required sint64 team_index          = 4;
+    required sint32 team_pos            = 5;
+    required bool   is_master           = 6;
+    required sint32 reborn_sum          = 7;
+    required E_OBJECT_TYPE object_type  = 8[default = EOT_INVALID];
+    //required GameObjectActionInfos action_info  = 8;
+}
+message BattleUnitInfo
+{
+    required BattleUnitBaseInfo base_info   = 1;
+    required universal_data     attr        = 2;
+}
+message ServerBattleUnitInfo
+{
+    required BattleUnitBaseInfo base_info           = 1;
+    required universal_data     attr                = 2;
+    required sint32             defaule_skill_type  = 3;  // 默认技能
+    required universal_data     skill_info          = 4;  // 技能信息
+}
+
+// 广播对象进入战斗
+message S2C_EnterBattleScene
+{
+    required sint64         self_team_index         = 1;
+    repeated universal_data list_public_info        = 2;
+    repeated universal_data list_memory_info        = 3;
+    repeated BattleUnitInfo list_battle_unit_info   = 4;
+}
+
+// 广播战斗帧
+message S2C_BattleFrameTick
+{
+    required sint64 new_tick_num  = 1;
+    required sint64 sum_tick_num  = 2;
+}
+
+// 广播行动力变更
+message S2C_BattleActionForce
+{
+    required sint64 src_role_index  = 1;
+    required sint32 action_force    = 2;
+}
+
+// 广播行法力变更
+message S2C_BattleUpdateMP
+{
+    required sint64 src_role_index  = 1;
+    required sint32 new_mp          = 2;
+}
+
+// 广播等待角色行动
+message S2C_BattleWaitAction
+{
+    required sint64 src_role_index              = 1;
+    required sint32 surplus_operation_second    = 2;
+    required bool   can_action                  = 3;
+}
+
+
+// 上报战斗防御
+message C2S_BattleCommandDefend
+{
+    required sint64 role_index  = 1;
+}
+message S2C_BattleCommandDefend
+{
+    required sint64 role_index      = 1;
+    required sint32 recovery_hp     = 2;
+    required sint32 recovery_mp     = 3;
+    required sint32 recovery_action = 4;
+}
+
+// 战斗伤害
+message S2C_BattleCommandDamage
+{
+    required sint64 role_index  = 1;
+    required sint32 damage_hp   = 2;
+    required sint32 damage_mp   = 3;
+}
+
+message BattleSkillBuffInfo
+{
+    required sint32 buff_id             = 1;    // 状态类型
+    required sint32 surplus_frames      = 2;    // 剩余帧数
+    //required bytes  res_file            = 3;    // BUFF资源文件
+    //required sint32 res_key             = 4;    // BUFF资源Key
+    repeated sint32 list_param_int32    = 5;    // 状态参数
+    repeated float  list_param_float    = 6;    // 状态参数
+    repeated bytes  list_param_string   = 7;    // 状态参数
+}
+
+message C2S_Ask_SetDefaultSkillType
+{
+    required sint64 role_index          = 1;
+    required sint64 tar_role_index      = 2;
+    required bytes  default_skill_name  = 3;
+}
+
+// 上报战斗普通攻击
+message C2S_BattleCommandAttack
+{
+    required sint64 role_index      = 1;
+    required sint64 tar_role_index  = 2;
+}
+message BattleCommandAttackInfo
+{
+    required sint64 tar_role_index          = 1;    // 目标
+    required sint32 damage                  = 2;    // 伤害
+    required bool   crit                    = 3;    // 暴击
+    required bool   deadly                  = 4;    // 致命
+    required bool   miss                    = 5;    // 闪避
+    repeated BattleSkillBuffInfo list_buff  = 6;    // 状态
+}
+message S2C_BattleCommandAttack
+{
+    required sint64 src_role_index              = 1;
+    repeated BattleCommandAttackInfo list_tar   = 2;
+}
+
+// 上报战斗使用技能
+message C2S_BattleCommandUseSkill
+{
+    required sint64 role_index      = 1;
+    required sint64 tar_role_index  = 2;
+    required bytes  skill_name      = 3;
+}
+message BattleCommandSkillInfo
+{
+    required sint64 tar_role_index              = 1;    // 目标
+    required bool   crit                        = 2;    // 暴击
+    repeated sint32 list_power                  = 3;    // 技能能力(伤害,护盾,效果值等)
+    repeated BattleSkillBuffInfo list_buff      = 4;    // 状态
+}
+message S2C_BattleCommandUseSkill
+{
+    required sint64 src_role_index                  = 1;
+    required sint32 src_role_new_hp                 = 2;
+    required sint32 src_role_new_mp                 = 3;
+    required bytes  skill_name                      = 4;
+    required universal_data skill_info              = 5;
+    repeated BattleCommandSkillInfo list_tar        = 6;
+    repeated BattleCommandSkillInfo list_tar_splash = 7;
+}
+message S2C_BattleCommandTriggerBuff
+{
+    required sint64 tar_role_index      = 1;    // 目标
+    required BattleSkillBuffInfo buff   = 2;
+}
+message S2C_BattleCommandRemoveBuff
+{
+    required sint64 tar_role_index  = 1;    // 目标
+    required sint32 buff_id         = 2;
+}
+
+// 上报战斗召唤
+message C2S_BattleCommandCallSummon
+{
+    required sint64 role_index          = 1;
+    required sint64 summon_role_index   = 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 上报战斗指令播放完毕
+message C2S_BattleCommandActionDone
+{
+    required sint64 role_index  = 1;
+}
+
+

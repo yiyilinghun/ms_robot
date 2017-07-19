@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00.预编译头">
+      <UniqueIdentifier>{34e249b7-6a83-4951-ac16-bbffb58ada27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.配置结构">
+      <UniqueIdentifier>{118a32a5-836e-497f-98c4-09c5a5cc24df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.通用结构">
+      <UniqueIdentifier>{92020deb-91d9-403a-8ce1-7807bddbc330}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.通讯结构">
+      <UniqueIdentifier>{002f3550-7044-404f-b5ae-ec6c6b9da40a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.其他结构">
+      <UniqueIdentifier>{dad3e195-1e0a-4128-b8f7-99c524caf626}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Precompiled.cpp">
+      <Filter>00.预编译头</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_Npc.cpp">
+      <Filter>03.通用结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_Scene.cpp">
+      <Filter>03.通用结构</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonBattle.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonResDef.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="PJConfig.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MsBase\UD_Base.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_Born.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_Common.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_FindMapInfo.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_ObjectRes.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_RoleAttr.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_RoleInfo.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+    <ClCompile Include="UD_TeamInfo.cpp">
+      <Filter>06.其他结构</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h">
+      <Filter>00.预编译头</Filter>
+    </ClInclude>
+    <ClInclude Include="UDC_Item_Drugs.h">
+      <Filter>01.配置结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UDC_Item_Equip.h">
+      <Filter>01.配置结构</Filter>
+    </ClInclude>
+    <ClInclude Include="PJC_Skill.h">
+      <Filter>03.通用结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Monster.h">
+      <Filter>03.通用结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Npc.h">
+      <Filter>03.通用结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Scene.h">
+      <Filter>03.通用结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_TransferPoint.h">
+      <Filter>03.通用结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UDD_Account.h">
+      <Filter>05.通讯结构</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonBattle.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonResDef.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="PJConfig.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MsBase\UD_Base.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Born.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_Common.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_FindMapInfo.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_LevelInfo.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_ObjectRes.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_RoleAttr.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_RoleInfo.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+    <ClInclude Include="UD_TeamInfo.h">
+      <Filter>06.其他结构</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

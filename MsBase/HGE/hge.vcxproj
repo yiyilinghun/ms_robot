@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C880C497-3D70-407A-9FAF-9FFADDD44210}</ProjectGuid>
+    <RootNamespace>hge</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>hge</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.23107.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;HGEDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <Version>1.90</Version>
+      <ModuleDefinitionFile>hge.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>
+      </ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN64;WIN32;_DEBUG;_WINDOWS;_USRDLL;HGEDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>false</StringPooling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <Version>1.90</Version>
+      <ModuleDefinitionFile>hge.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>NDEBUG;_USRDLL;_WINDOWS;HGEDLL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <Version>1.90</Version>
+      <ModuleDefinitionFile>hge.def</ModuleDefinitionFile>
+      <OptimizeReferences />
+      <EnableCOMDATFolding />
+      <LinkTimeCodeGeneration />
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <ImportLibrary>
+      </ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_USRDLL;_WINDOWS;HGEDLL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <Version>1.90</Version>
+      <ModuleDefinitionFile>hge.def</ModuleDefinitionFile>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="hgeanim.cpp" />
+    <ClCompile Include="hgecolor.cpp" />
+    <ClCompile Include="hgedistort.cpp" />
+    <ClCompile Include="hgefader.cpp" />
+    <ClCompile Include="hgefont.cpp" />
+    <ClCompile Include="hgegui.cpp" />
+    <ClCompile Include="hgeguictrls.cpp" />
+    <ClCompile Include="hgeparticle.cpp" />
+    <ClCompile Include="hgepmanager.cpp" />
+    <ClCompile Include="hgerect.cpp" />
+    <ClCompile Include="hgeresource.cpp" />
+    <ClCompile Include="hgesprite.cpp" />
+    <ClCompile Include="hgestrings.cpp" />
+    <ClCompile Include="hgevector.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="resources.cpp" />
+    <ClCompile Include="hge.cpp" />
+    <ClCompile Include="ini.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="power.cpp" />
+    <ClCompile Include="resource.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="system.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="ZLIB\adler32.c" />
+    <ClCompile Include="ZLIB\compress.c" />
+    <ClCompile Include="ZLIB\crc32.c" />
+    <ClCompile Include="ZLIB\deflate.c" />
+    <ClCompile Include="ZLIB\gzclose.c" />
+    <ClCompile Include="ZLIB\gzlib.c" />
+    <ClCompile Include="ZLIB\gzread.c" />
+    <ClCompile Include="ZLIB\gzwrite.c" />
+    <ClCompile Include="ZLIB\infback.c" />
+    <ClCompile Include="ZLIB\inffast.c" />
+    <ClCompile Include="ZLIB\inflate.c" />
+    <ClCompile Include="ZLIB\inftrees.c" />
+    <ClCompile Include="ZLIB\ioapi.c" />
+    <ClCompile Include="ZLIB\trees.c" />
+    <ClCompile Include="ZLIB\uncompr.c" />
+    <ClCompile Include="ZLIB\unzip.c" />
+    <ClCompile Include="ZLIB\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bass.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="resources.h" />
+    <ClInclude Include="hge.h" />
+    <ClInclude Include="hge_def.h" />
+    <ClInclude Include="ZLIB\crc32.h" />
+    <ClInclude Include="ZLIB\crypt.h" />
+    <ClInclude Include="ZLIB\deflate.h" />
+    <ClInclude Include="ZLIB\gzguts.h" />
+    <ClInclude Include="ZLIB\inffast.h" />
+    <ClInclude Include="ZLIB\inffixed.h" />
+    <ClInclude Include="ZLIB\inflate.h" />
+    <ClInclude Include="ZLIB\inftrees.h" />
+    <ClInclude Include="ZLIB\ioapi.h" />
+    <ClInclude Include="ZLIB\trees.h" />
+    <ClInclude Include="ZLIB\unzip.h" />
+    <ClInclude Include="ZLIB\zconf.h" />
+    <ClInclude Include="ZLIB\zconf.in.h" />
+    <ClInclude Include="ZLIB\zip.h" />
+    <ClInclude Include="ZLIB\zlib.h" />
+    <ClInclude Include="ZLIB\zutil.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00.预编译头">
+      <UniqueIdentifier>{a336ba1d-19d1-4606-be5b-2e79d2b59060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.单元列表">
+      <UniqueIdentifier>{a74b2a79-c5e8-4c6a-8760-cd9b00e3f067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.单元应用">
+      <UniqueIdentifier>{bf836d91-6429-45fe-acc7-eb628754d820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.单元文档">
+      <UniqueIdentifier>{e96c7f51-44ee-4dba-98b5-4b5ab7d245a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.单元视图">
+      <UniqueIdentifier>{86396623-f363-4baa-97ed-f123883f3b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.机器人类">
+      <UniqueIdentifier>{874fdf3c-7f90-4313-a372-a8ff4d7115d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.MFC头文件">
+      <UniqueIdentifier>{bb881c4a-f68b-4eb9-9323-28c87f0e36f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.MFC源文件">
+      <UniqueIdentifier>{a044088d-1d8c-4680-b833-7584f03884ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.共享数据">
+      <UniqueIdentifier>{f63362e4-bead-4781-aab8-595cec282294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.资源文件">
+      <UniqueIdentifier>{ce731eb8-0ce4-4b63-bc99-e57718ab0b3d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Precompiled.cpp">
+      <Filter>00.预编译头</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotList.cpp">
+      <Filter>01.单元列表</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotApp.cpp">
+      <Filter>02.单元应用</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotDoc.cpp">
+      <Filter>03.单元文档</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotView.cpp">
+      <Filter>04.单元视图</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotPlayer.cpp">
+      <Filter>04.机器人类</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassView.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CntrItem.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesWnd.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewTree.cpp">
+      <Filter>99.MFC源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PJ_Common\CommonResDef.cpp">
+      <Filter>99.共享数据</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MsBase\UD_Base.cpp">
+      <Filter>99.共享数据</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PJ_Common\GlobalPlayer.cpp">
+      <Filter>04.机器人类</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h">
+      <Filter>00.预编译头</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotList.h">
+      <Filter>01.单元列表</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotApp.h">
+      <Filter>02.单元应用</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotDoc.h">
+      <Filter>03.单元文档</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotView.h">
+      <Filter>04.单元视图</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotPlayer.h">
+      <Filter>04.机器人类</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassView.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CntrItem.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesWnd.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewTree.h">
+      <Filter>99.MFC头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PJ_Common\CommonResDef.h">
+      <Filter>99.共享数据</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MsBase\UD_Base.h">
+      <Filter>99.共享数据</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PJ_Common\GlobalPlayer.h">
+      <Filter>04.机器人类</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFC_Robot.rc">
+      <Filter>99.资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\classview.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\classview_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\class_view.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\class_view_hc.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\explorer.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\explorer_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\fileview.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\fileview_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\file_view.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\file_view_hc.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\menuimages.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\menuimages_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\MFC_Robot.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\MFC_RobotDoc.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\output_wnd.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\output_wnd_hc.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\properties.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\properties_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\properties_wnd.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\properties_wnd_hc.ico">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\sort.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\sort_hc.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+    <Image Include="UserImages.bmp">
+      <Filter>99.资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MFC_Robot.reg">
+      <Filter>99.资源文件</Filter>
+    </None>
+    <None Include="res\MFC_Robot.rc2">
+      <Filter>99.资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.资源文件</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

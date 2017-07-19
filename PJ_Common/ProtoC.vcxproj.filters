@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Battle.pb.cc" />
+    <ClCompile Include="Common.pb.cc" />
+    <ClCompile Include="Database.pb.cc" />
+    <ClCompile Include="EnumDef.pb.cc" />
+    <ClCompile Include="Mail.pb.cc" />
+    <ClCompile Include="NetPacket.pb.cc" />
+    <ClCompile Include="Server.pb.cc" />
+    <ClCompile Include="Task.pb.cc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,231 @@
+syntax  = "proto2";
+
+// 协议版本号
+enum E_MSG_VERSION
+{
+    MSG_VERSION_INVALID  = 0;
+    MSG_VERSION_ID  = 0x00000001;
+}
+
+// 协议版本号
+enum E_OBJECT_TYPE
+{
+    EOT_INVALID         = 0x00000000;
+    EOT_PLAYER          = 0x00000001;
+    EOT_SUMMONPET       = 0x00000002;
+    EOT_NPC             = 0x00000003;
+    EOT_MONSTER         = 0x00000004;
+    EOT_TRANSFER_POINT  = 0x00000005;
+}
+
+// 游戏定义
+enum E_ITEM_DEF
+{
+    EID_INVALID     = 0;
+    GOLD_ID         = 1;    // 金币
+    ENDURANCE_ID    = 2;    // 体力
+    DIAMOND_COIN_ID = 3;    // 钻石
+    EXP_ID          = 4;    // 经验
+    SKILL_POIN_ID   = 5;    // 技能点
+
+    PACKAGE_MIN_ID  = 10001;
+    PACKAGE_MAX_ID  = 19999;
+
+    ITEM_MIN_ID     = 10000000;
+    ITEM_MAX_ID     = 19999999;
+
+    EQUIP_MIN_ID    = 20000000;
+    EQUIP_MAX_ID    = 29999999;
+}
+
+// 装备部位类型
+enum E_EQUIP_SITE_TYPE
+{
+    EEST_INVALID    = 0;
+    EEST_HELMET     = 1; // 头盔
+    EEST_CLOTHES    = 2; // 衣服
+    EEST_SHOES      = 3; // 鞋子
+    EEST_ORNAMENTS  = 4; // 饰品
+    EEST_WEAPONS    = 5; // 武器
+    EEST_VEHICLE    = 6; // 载具
+}
+
+// 物品类型
+enum E_GOODS_TYPE
+{
+    EGT_INVALID         = 0;
+
+    EGT_GOLD            = 1;    // 金币
+    EGT_STAMINA         = 2;    // 体力
+    EGT_DIAMOND_COIN    = 3;    // 钻石
+    EGT_EXP             = 4;    // 经验
+    EGT_SKILL_POINT     = 5;    // 技能点
+
+
+    EGT_PACKAGE         = 101;  // 礼包
+    EGT_ITEM            = 102;  // 道具
+    EGT_EQUIP           = 103;  // 装备
+}
+
+// 角色状态
+enum E_ROLE_STATE
+{
+    ERS_IN_DB       = 0;
+    ERS_IN_LOGIN    = 1;
+    ERS_IN_SCENE    = 2;
+}
+
+// 场景类型
+enum E_SCENE_TYPE
+{
+    EST_INVALID         = 0;  // 无效
+    EST_GAME_SCENE      = 1;  // 游戏
+    EST_BATTLE_SCENE    = 2;  // 战斗
+}
+
+// 返回结果
+enum E_SYUC_RET_CODE
+{
+    RC_OK               = 0;
+    RC_YES              = 1;
+    RC_NO               = 2;
+
+    //RC_FAILURE          = -1;
+    //RC_PARAMETER_ERROR  = -2;
+}
+
+// 聊天类型
+enum E_CHAT_TYPE
+{
+    ECT_CURRENT         = 0;    // 当前
+    ECT_TEAM            = 1;    // 组队
+}
+
+// 表情商店类型枚举
+enum FACE_SHOP_TYPE
+{
+    FST_INVALID     =   0;
+    FST_NORMAL      =   1;
+    FST_DISCOUNT    =   2;
+}
+
+// 战斗类型
+enum E_BATTLE_TYPE
+{
+    EBT_INVALID =   0;
+    EBT_PVE     =   1;    // PVE
+    EBT_PVP     =   2;    // PVP
+}
+
+// 战斗类型
+enum E_BATTLE_FIGHT_TYPE
+{
+    EBFT_INVALID    =   0;
+    EBFT_RISK       =   1;    // 冒险
+    EBFT_ARENA      =   2;    // 竞技场
+}
+
+// 战斗播放类型
+enum E_BATTLE_PLAY_TYPE
+{
+    EBPT_INVALID    =   0;
+    EBPT_NOMAL      =   1;    // 客户端即时战斗、服务端校验战斗
+    EBPT_REPLAY     =   2;    // 客户端战斗重播
+}
+
+// 战斗模式类型
+enum E_BATTLE_MODE_TYPE
+{
+    EBMT_INVALID    =   0;
+    EBMT_NORMAL     =   1;    // 普通模式
+    EBMT_MODE_VIDEO =   2;    // 播放录像
+}
+
+// 战斗结果类型
+enum E_BATTLE_RESULT_TYPE
+{
+    EBRT_INVALID    =   0;
+    EBRT_WIN        =   1;    // 进攻方赢
+    EBRT_LOSE       =   2;    // 防守放赢
+    EBRT_DOGFULL    =   3;    // 平局
+}
+
+// 战斗日志类型
+enum E_BATTLE_LOG_TYPE
+{
+    LOGT_INVALID        =   0;
+    LOGT_USER_CARD      =   1;    // 使用卡牌操作
+    LOGT_COLLECT_BOX    =   2;    // 捡起战斗掉落
+}
+
+// 玩家阵营类型
+enum E_BATTLE_CAMP_TYPE
+{
+    CAMP_INVALID        =   0;
+    CAMP_TYPE_OWN       =   1;    // 自己(自己队伍的士兵)
+    CAMP_TYPE_ENEMY     =   2;    // 敌军(敌方队伍的士兵)
+}
+
+enum E_ONLINE_UNIT_RET
+{
+    EOUR_OK                     = 0x00000000;   // 单元上线成功
+    EOUR_FAILED                 = 0x00000001;   // 单元上线失败
+    EOUR_NOT_EXIST              = 0x00000002;   // 单元不存在
+    EOUR_EXIST                  = 0x00000003;   // 单元已在线
+    EOUR_COUNT_LIMIT            = 0x00000004;   // 数量已达上限
+    EOUR_CENTER_CAN_NOT_REACH   = 0x00000005;   // 中央服务器不可达
+}
+
+enum EQUIP_POS_TYPE // 装备位置类型
+{
+    EPT_PI_FENG     = 0x00000000;   // 披风
+    EPT_MAO_ZI      = 0x00000001;   // 帽子
+    EPT_WU_QI       = 0x00000002;   // 武器
+    EPT_YI_FU       = 0x00000003;   // 衣服
+    EPT_GUA_JIAN    = 0x00000004;   // 挂件
+    EPT_XIE_ZI      = 0x00000005;   // 鞋子
+    EPT_MIAN_JU     = 0x00000006;   // 面具
+    EPT_XIANG_LIAN  = 0x00000007;   // 项链
+    EPT_JIE_ZHI     = 0x00000008;   // 戒指
+    EPT_YAO_DAI     = 0x00000009;   // 腰带
+}
+
+enum EQUIP_TYPE // 装备类型
+{
+    ET_INVALID          = 0;
+
+    ET_PI_FENG_NAN      = 0x00000001;   // 披风_男
+    ET_PI_FENG_NV       = 0x00000002;   // 披风_女
+
+    ET_MAO_ZI_NAN       = 0x00000003;   // 帽子_男
+    ET_MAO_ZI_NV        = 0x00000004;   // 帽子_女
+
+    ET_YI_FU_NAN        = 0x00000005;   // 衣服_男
+    ET_YI_FU_NV         = 0x00000006;   // 衣服_女
+
+    ET_GUA_JIAN_NAN     = 0x00000007;   // 挂件_男
+    ET_GUA_JIAN_NV      = 0x00000008;   // 挂件_女
+
+    ET_MIAN_JU_NAN      = 0x00000009;   // 面具_男
+    ET_MIAN_JU_NV       = 0x0000000A;   // 面具_女
+
+    ET_WU_QI_JIAN       = 0x00000010;   // 武器_剑
+    ET_WU_QI_DAO        = 0x00000011;   // 武器_刀
+    ET_WU_QI_BIAN       = 0x00000012;   // 武器_鞭
+    ET_WU_QI_CHUI       = 0x00000013;   // 武器_锤
+    ET_WU_QI_GUN        = 0x00000014;   // 武器_棍
+    ET_WU_QI_ZHUA       = 0x00000015;   // 武器_爪
+    ET_WU_QI_QIANG      = 0x00000016;   // 武器_枪
+    ET_WU_QI_FU         = 0x00000017;   // 武器_斧
+    ET_WU_QI_SHAN       = 0x00000018;   // 武器_扇
+    ET_WU_QI_GOU        = 0x00000019;   // 武器_钩
+    ET_WU_QI_QUAN       = 0x0000001A;   // 武器_拳
+    ET_WU_QI_CHEN       = 0x0000001B;   // 武器_尘
+    ET_WU_QI_FAN        = 0x0000001C;   // 武器_幡
+    ET_WU_QI_DAI        = 0x0000001D;   // 武器_带
+
+    ET_XIANG_LIAN       = 0x00000020;   // 项链
+    ET_XIE_ZI           = 0x00000021;   // 鞋子
+    ET_JIE_ZHI          = 0x00000022;   // 戒指
+    ET_YAO_DAI          = 0x00000023;   // 腰带
+}

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01.基础定义">
+      <UniqueIdentifier>{ebce1111-888d-479f-ab13-302a45bf53af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.预编译头">
+      <UniqueIdentifier>{c653c2ff-a318-41af-b29d-8a9893f01849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="20.网络引擎">
+      <UniqueIdentifier>{a9b16a74-c5d9-4d74-9791-d4164fda9614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="22.线程管理">
+      <UniqueIdentifier>{e0b0cddd-9b73-487c-a77d-268b8a1fd67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="50.服务管理">
+      <UniqueIdentifier>{15fbd4b7-386f-4172-87d4-e89311661f1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="24.完成端口">
+      <UniqueIdentifier>{67739527-55d9-4b3c-a202-eaa3657248c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="70.加密解密">
+      <UniqueIdentifier>{da12db43-fa4d-4e2a-bcae-4ab3b721fbc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="60.数据管理">
+      <UniqueIdentifier>{25f1cfec-564f-4d03-85cb-5c4711541e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="71.JSON">
+      <UniqueIdentifier>{a43414d8-88ca-4353-b2d8-3184fbd5c453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="72.脚本引擎">
+      <UniqueIdentifier>{9ade76e4-e7e1-47c9-bced-2adced39cce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="72.脚本引擎\src">
+      <UniqueIdentifier>{d80f4bb3-ccac-4080-9af3-9115565c7572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="25.群集单元">
+      <UniqueIdentifier>{02135bb1-c2b6-45c7-8268-024982cc1000}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MsThread.h">
+      <Filter>22.线程管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsService.h">
+      <Filter>50.服务管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsSuccessiveDictionary.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsVector.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompiled.h">
+      <Filter>00.预编译头</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBaseDef.h">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsDictionary.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsList.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsQueue.hpp">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MsAssertx.h">
+      <Filter>01.基础定义</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5.h">
+      <Filter>70.加密解密</Filter>
+    </ClInclude>
+    <ClInclude Include="MsLuaInterface.h">
+      <Filter>72.脚本引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBaseSql.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsMysql.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsRegistry.h">
+      <Filter>60.数据管理</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetClient.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetPacket.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetRouter.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetServer.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsNetTerminal.h">
+      <Filter>20.网络引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterNode.h">
+      <Filter>25.群集单元</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPUnit.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCP.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPDef.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCP_OL.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="MsIOCPFactory.h">
+      <Filter>24.完成端口</Filter>
+    </ClInclude>
+    <ClInclude Include="ClusterTerminal.h">
+      <Filter>25.群集单元</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterOutRouter.h">
+      <Filter>25.群集单元</Filter>
+    </ClInclude>
+    <ClInclude Include="MsClusterInRouter.h">
+      <Filter>25.群集单元</Filter>
+    </ClInclude>
+    <ClInclude Include="MsBaseService.h">
+      <Filter>50.服务管理</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MsThread.cpp">
+      <Filter>22.线程管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsService.cpp">
+      <Filter>50.服务管理</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompiled.cpp">
+      <Filter>00.预编译头</Filter>
+    </ClCompile>
+    <ClCompile Include="json_reader.cpp">
+      <Filter>71.JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="json_writer.cpp">
+      <Filter>71.JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="json_value.cpp">
+      <Filter>71.JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="MsLuaInterface.cpp">
+      <Filter>72.脚本引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lapi.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lauxlib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lbaselib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lcode.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ldblib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ldebug.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ldo.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ldump.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lfunc.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lgc.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\linit.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\liolib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\llex.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lmathlib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lmem.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\loadlib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lobject.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lopcodes.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\loslib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lparser.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lstate.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lstring.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lstrlib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ltable.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ltablib.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\ltm.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lua.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\luac.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lundump.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lvm.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\lzio.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\print.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\tolua_event.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\tolua_is.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\tolua_map.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\tolua_push.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\src\tolua_to.c">
+      <Filter>72.脚本引擎\src</Filter>
+    </ClCompile>
+    <ClCompile Include="MsAssertx.cpp">
+      <Filter>01.基础定义</Filter>
+    </ClCompile>
+    <ClCompile Include="MsBaseSql.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsMysql.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsRegistry.cpp">
+      <Filter>60.数据管理</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetPacket.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetRouter.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsNetTerminal.cpp">
+      <Filter>20.网络引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterNode.cpp">
+      <Filter>25.群集单元</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCPUnit.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCP.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCP_OL.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="MsIOCPFactory.cpp">
+      <Filter>24.完成端口</Filter>
+    </ClCompile>
+    <ClCompile Include="ClusterTerminal.cpp">
+      <Filter>25.群集单元</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterOutRouter.cpp">
+      <Filter>25.群集单元</Filter>
+    </ClCompile>
+    <ClCompile Include="MsClusterInRouter.cpp">
+      <Filter>25.群集单元</Filter>
+    </ClCompile>
+    <ClCompile Include="MsBaseService.cpp">
+      <Filter>50.服务管理</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

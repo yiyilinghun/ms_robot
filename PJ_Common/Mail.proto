@@ -1,0 +1,70 @@
+syntax = "proto2";
+import "EnumDef.proto";
+import "Common.proto";
+
+
+// 邮件结构
+message mail_title
+{
+    required sint64 index   = 1;
+    required bytes  title   = 2;
+    required sint64 time    = 3;
+}
+message mail_full
+{
+    required sint64         src_role_index  = 1;
+    required sint64         tar_role_index  = 2;
+    required mail_title     title           = 3;
+    required bytes          mail_text       = 4;
+    repeated item_config    list_mail_items = 5;
+    //repeated face_config    mail_list_faces = 6;
+    //repeated suit_config    mail_list_suits = 7;
+}
+
+// 服务器通知新增邮件
+message S2S_Add_New_Mail
+{
+    required sint64     src_role_index  = 1;
+    required sint64     tar_role_index  = 2;
+    required mail_full  mail            = 3;
+}
+
+// 邮件系统
+message S2C_Mail_Have_New
+{
+    required sint64 role_index  = 1;
+}
+message C2S_Mail_Title
+{
+    required sint64 role_index  = 1;
+    optional sint64 int_addr    = 2;
+}
+message S2C_Mail_Title
+{
+    required sint64     role_index  = 1;
+    repeated mail_title list_titles = 2;
+}
+
+message C2S_Mail_Full
+{
+    required sint64 role_index  = 1;
+    required sint64 mail_index  = 2;
+    optional sint64 int_addr    = 3;
+}
+message S2C_Mail_Full
+{
+    required sint64     role_index  = 1;
+    required bytes      ret_code    = 2;
+    optional mail_full  mail        = 3;
+}
+message C2S_Mail_Read
+{
+    required sint64 role_index  = 1;
+    required sint64 mail_index  = 2;
+    optional sint64 int_addr    = 3;
+}
+message S2C_Mail_Read
+{
+    required sint64 role_index  = 1;
+    required bytes  ret_code    = 2;
+}
