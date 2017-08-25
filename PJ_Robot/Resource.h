@@ -102,16 +102,28 @@
 #define ID_CREATE_ROBOT_1000            32780
 #define ID_EDIT_C2S_LOGIN               32781
 #define ID_32782                        32782
+#define ID_ROBOT_TIMER                  3278300
 #define ID_ROBOT_MOVE                   32783
 #define ID_32784                        32784
 #define ID_ROBOT_CHANGE_SCENE           32785
+#define ID_32786                        32786
+#define ID_EDIT_C2S_REG                 32787
+#define ID_EDIT_C2S_REGISTER            32788
+#define ID_ROBOT_CREATE_ROLE            32789
+#define ID_ROBOT_ENTER_SCENE            32790
+#define ID_32791                        32791
+#define ID_GM32792                      32792
+#define ID_GM_I_AM_GOD                  32793
+#define ID_32794                        32794
+#define ID_ENTER_SKY_MONSRY             32795
+#define ID_ENTER_SKY_MONTER             32796
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32786
+#define _APS_NEXT_COMMAND_VALUE         32797
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

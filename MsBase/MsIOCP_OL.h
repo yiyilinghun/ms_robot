@@ -14,7 +14,14 @@ class MsThreadIOCPManager;
 
 class IocpUnit;
 #pragma pack(push,1)
-struct iocp_base_ol : public OVERLAPPED { IOCP_OL_TYPE m_Type; };
+struct iocp_base_ol : public OVERLAPPED 
+{
+    iocp_base_ol()
+    {
+        ZeroMemory(this, sizeof(OVERLAPPED));
+    }
+    IOCP_OL_TYPE m_Type; 
+};
 struct iocp_timer_ol : public iocp_base_ol
 {
     DINLINE iocp_timer_ol(IocpUnit* xIocpUnit, MsTimer* xTimer) : m_IocpUnit(xIocpUnit), m_Timer(xTimer) {

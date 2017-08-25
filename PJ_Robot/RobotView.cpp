@@ -18,6 +18,7 @@
 #endif
 
 
+MsList<MsgStruct> g_CommandList;
 MsList<Int32> g_FaceId;
 // RobotView
 
@@ -37,7 +38,13 @@ BEGIN_MESSAGE_MAP(RobotView, CView)
     ON_WM_KEYDOWN()
     ON_WM_LBUTTONDOWN()
     ON_WM_TIMER()
+    ON_COMMAND(ID_EDIT_C2S_REGISTER, &RobotView::OnEdit_C2S_Register)
     ON_COMMAND(ID_EDIT_C2S_LOGIN, &RobotView::OnEdit_C2S_Login)
+    ON_COMMAND(ID_ROBOT_CREATE_ROLE, &RobotView::OnEdit_C2S_CreateRole)
+    ON_COMMAND(ID_ROBOT_ENTER_SCENE, &RobotView::OnEdit_C2S_EnterScene)
+    ON_COMMAND(ID_GM_I_AM_GOD, &RobotView::OnEdit_GM_IAmGod)
+    ON_COMMAND(ID_ENTER_SKY_MONTER, &RobotView::OnEdit_Go_SkyMonter)
+
     ON_COMMAND(ID_ROBOT_MOVE, &RobotView::OnRobotMove)
     ON_COMMAND(ID_CREATE_ROBOT_1, &RobotView::OnCreateRobot1)
     ON_COMMAND(ID_CREATE_ROBOT_2, &RobotView::OnCreateRobot2)
@@ -48,6 +55,9 @@ BEGIN_MESSAGE_MAP(RobotView, CView)
     ON_COMMAND(ID_CREATE_ROBOT_500, &RobotView::OnCreateRobot500)
     ON_COMMAND(ID_CREATE_ROBOT_1000, &RobotView::OnCreateRobot1000)
     ON_COMMAND(ID_ROBOT_CHANGE_SCENE, &RobotView::OnRobotChangeScene)
+
+    //ON_WM_TIMER()
+
 END_MESSAGE_MAP()
 
 
@@ -71,7 +81,59 @@ void LoadImageFromZip(CImage& xImage, LPCSTR lpZipFileName, LPCSTR lpResName, LP
     }
 }
 
-// RobotView 构造/析构
+MsNetTerminal* NetRobot::GetNewNetTerminal(MsIOCPManager* xMsIOCPManager)
+{
+    return new RobotCellPlayer(xMsIOCPManager, m_RobotView, g_CommandList);
+}
+
+RobotView* g_RobotView = nullptr;
+MsList<mstr> g_List;
+Int32 g_RobotCellNextIndex;
+
+void CALLBACK Timer_CreateRobot(HWND hWnd, UINT xId, UINT_PTR, DWORD)
+{
+    if (g_RobotView)
+    {
+        static bool s_is = false;
+        if (!s_is)
+        {
+            g_RobotView->OnCreateRobot500();
+        }
+        s_is = true;
+    }
+}
+
+void CALLBACK Timer_Login(HWND hWnd, UINT xId, UINT_PTR, DWORD)
+{
+    if (g_RobotView)
+    {
+        static bool s_is = false;
+        if (!s_is)
+        {
+            g_RobotView->OnEdit_C2S_Login();
+        }
+        s_is = true;
+    }
+}
+
+void CALLBACK Timer_SkyMonter(HWND hWnd, UINT xId, UINT_PTR, DWORD)
+{
+    if (g_RobotView)
+    {
+        static bool s_is = false;
+        if (!s_is)
+        {
+            g_RobotView->OnEdit_Go_SkyMonter();
+        }
+        s_is = true;
+    }
+}
+
+void CALLBACK Timer_StopRobot(HWND hWnd, UINT xId, UINT_PTR, DWORD)
+{
+    exit(0);
+}
+
 
 RobotView::RobotView()
     : m_MsThreadIOCPManager("RobotThread", 5, True)
@@ -93,6 +155,28 @@ RobotView::RobotView()
     MsVector<DWORD> xList2; xList2.Add(0x1730d4d0); xList2.Add(10);
     MsVector<DWORD> xList3; xList3.Add(0xeeff2000); xList3.Add(0xf);
     MsVector<DWORD> xList4; xList4.Add(0xc9103900); xList4.Add(0x79);
+
+    g_RobotView = this;
+
+    ifstream xFileIn("server.txt", ios_base::in);
+    char szBuff[200];
+    xFileIn.getline(szBuff, 200);
+    MsBase::StringSplit(szBuff, ':', g_List);
+    xFileIn.close();
+
+    MsBase::stoi(g_List[2].c_str(), g_RobotCellNextIndex);
+
+    //::SetTimer(m_hWnd, 100, 1000, Timer_CreateRobot);
+    //::SetTimer(m_hWnd, 200, 1000 + 10000, Timer_Login);
+    //::SetTimer(m_hWnd, 300, 1000 + 10000 + 10000, Timer_SkyMonter);
+    //::SetTimer(m_hWnd, 300, 1000 + 10000 + 10000 + 600000, Timer_StopRobot);
+
+
+
+    //::SetTimer(m_hWnd, 100, 10, Timer_CreateRobot);
+    //::SetTimer(m_hWnd, 200, 10 + 300, Timer_Login);
+    //::SetTimer(m_hWnd, 300, 10 + 300 + 300, Timer_SkyMonter);
+    //::SetTimer(m_hWnd, 300, 10 + 300 + 300 + 600, Timer_StopRobot);
 
     //LoadImageFromZip(m_RedImage, "..\\..\\res.zip", "res/Robot红框.png", MsBase::CreateZipPassword(xList1, xList2, xList3, xList4).c_str());
     //LoadImageFromZip(m_YellowImage, "..\\..\\res.zip", "res/Robot黄框.png", MsBase::CreateZipPassword(xList1, xList2, xList3, xList4).c_str());
@@ -116,9 +200,11 @@ RobotView::~RobotView()
 
     FAST_FOREACH(m_ListRobot)
     {
-        RobotPlayer* xRobotPlayer = m_ListRobot.Value();
-        xRobotPlayer->Close();
-        //SAFE_DETACH(xRobotPlayer);
+        RobotCellPlayer* xRobotPlayer1 = m_ListRobot.Value();
+        RobotCellPlayer* xRobotPlayer2 = m_ListRobot.Value();
+        xRobotPlayer1->Close();
+        SAFE_DETACH(xRobotPlayer1);
+        SAFE_DELETE(xRobotPlayer2);
     }
     m_ListRobot.Clear();
 }
@@ -191,6 +277,7 @@ void RobotView::OnDraw(CDC* pDC)
         {
             case E_ROBOT_STATE::ERS_READY: { pDC->FillRect(&xTemp, &m_GreenBrush); pDC->Draw3dRect(&xTemp, 0, 0); }break;
             case E_ROBOT_STATE::ERS_WAIT: { pDC->FillRect(&xTemp, &m_YellowBrush); pDC->Draw3dRect(&xTemp, 0, 0); }break;
+            case E_ROBOT_STATE::ERS_WARNING: { pDC->FillRect(&xTemp, &m_YellowBrush); pDC->Draw3dRect(&xTemp, 0, 0); }break;
             case E_ROBOT_STATE::ERS_STOP:
             case E_ROBOT_STATE::ERS_INVALID: { pDC->FillRect(&xTemp, &m_RedBrush); pDC->Draw3dRect(&xTemp, 0, 0); }break;
         }
@@ -500,7 +587,7 @@ Boolean RobotView::AddNewRobot(wstr xAddr, WORD xPort)
     }
     Int64 xNewRobotKey = INVALID_LID;
 
-    RobotPlayer* xRobotPlayer = new RobotPlayer(&m_MsThreadIOCPManager, this);
+    RobotCellPlayer* xRobotPlayer = new RobotCellPlayer(&m_MsThreadIOCPManager, this, g_CommandList);
     m_ListRobot.Add(xRobotPlayer);
 
     //if (MsBase::Ping(MsBase::W2M(xAddr)))
@@ -517,6 +604,11 @@ Boolean RobotView::AddNewRobot(wstr xAddr, WORD xPort)
 void RobotView::OnTimer(UINT_PTR nIDEvent)
 {
     this->Invalidate(False);
+
+    if (ID_ROBOT_TIMER == nIDEvent)
+    {
+    }
+
     //CRect xTempClientRect;
     //this->GetClientRect(&xTempClientRect);
     //Int32 xMaxWidth = xTempClientRect.Width();
@@ -596,7 +688,7 @@ void RobotView::OnTimer(UINT_PTR nIDEvent)
                     xAsk.set_is_run(true);
                     //xEnumValue->m_RoleInfo.GetRolePublic()->SetScenePosX(xTarX);
                     //xEnumValue->m_RoleInfo.GetRolePublic()->SetScenePosY(xTarY);
-                    xValue->RobotSendPacket(xAsk);
+                    //xValue->RobotSendPacket(xAsk);
                     xValue->WatiState();
                 }
             }
@@ -610,17 +702,63 @@ void RobotView::OnEdit_C2S_Login()
     {
         FAST_FOREACH(m_ListRobot)
         {
-            C2S_Ask_Login xAsk;
-            xAsk.set_sid(MsBase::GetUserSID());
-            xAsk.set_account(xEnumValue->m_Account);
-            xAsk.set_password(GlobalPlayer::Create_Encrypt_AccountInfo(xEnumValue->m_Account, xEnumValue->m_Password));
-            xEnumValue->RobotSendPacket(xAsk);
+            xEnumValue->Roboto_C2S_Login();
         }
         m_IsLogin = True;
     }
     else
     {
         AfxMessageBox(L"这批机器人已经登录过了!");
+    }
+}
+
+void RobotView::OnEdit_C2S_CreateRole()
+{
+    FAST_FOREACH(m_ListRobot)
+    {
+        xEnumValue->Roboto_C2S_CreateRole();
+    }
+}
+
+
+void RobotView::OnEdit_C2S_EnterScene()
+{
+    FAST_FOREACH(m_ListRobot)
+    {
+        xEnumValue->Roboto_C2S_EnterScene();
+    }
+}
+
+
+void RobotView::OnEdit_GM_IAmGod()
+{
+    FAST_FOREACH(m_ListRobot)
+    {
+        xEnumValue->Roboto_GM_IAmGod();
+    }
+}
+
+void RobotView::OnEdit_Go_SkyMonter()
+{
+    FAST_FOREACH(m_ListRobot)
+    {
+        xEnumValue->GoToSkyMonter();
+    }
+}
+
+void RobotView::OnEdit_C2S_Register()
+{
+    if (!m_IsLogin && !m_IsRegister)
+    {
+        FAST_FOREACH(m_ListRobot)
+        {
+            xEnumValue->Roboto_C2S_Register();
+        }
+        m_IsRegister = True;
+    }
+    else
+    {
+        AfxMessageBox(L"这批机器人当前不可进行注册!");
     }
 }
 
@@ -681,7 +819,7 @@ void RobotView::OnRobotChangeScene()
             xPacket.set_pos_x(25);
             xPacket.set_pos_y(15);
         }
-        xEnumValue->RobotSendPacket(xPacket);
+        //xEnumValue->RobotSendPacket(xPacket);
     }
 }
 
@@ -691,11 +829,17 @@ void RobotView::CreateRobot(Int32 xRobotCount)
     //xRegistryPath += _T(PJ_CLIENT_REGISTRY_FIELD_NAME);
     wstr xServerAddr = MsBase::M2W(GetServerAddr());
 
-    for (Int32 i = 0; i < xRobotCount; i++)
+
+    Int32 xPort = 0;
+
+    if (MsBase::stoi(g_List[1].c_str(), xPort))
     {
-        if (!this->AddNewRobot(L"192.168.4.209", 52113))
+        for (Int32 i = 0; i < xRobotCount; i++)
         {
-            break;
+            if (!this->AddNewRobot(MsBase::M2W(g_List[0]), xPort))
+            {
+                break;
+            }
         }
     }
 }
@@ -766,3 +910,4 @@ void RobotView::ShowRobotLog()
         }
     }
 }
+

@@ -129,7 +129,33 @@ void MsNetPacket::ProtoStr2U8(const BaseProto& xSrcProto, LPBASEPROTO xTarProto)
     }
 }
 
-Boolean MsNetPacket::FromProto(DWORD xPacketIndex, BaseProto& xBaseProto, Boolean IsUTF8)
+Boolean MsNetPacket::FromStream(WORD xPacketIndex, MsMemoryStream& xMsMemoryStream, QWORD xTonke)
+{
+    if (xTonke == INVALID_QID)
+    {
+        m_MsNetPacketHead.m_PacketLen = xMsMemoryStream.m_InOffect;
+        if (m_MsNetPacketHead.m_PacketLen <= MAX_PACKET_DATA_LEN)
+        {
+            m_MsNetPacketHead.m_PacketIndex = xPacketIndex;
+            memcpy(m_PacketData, xMsMemoryStream.GetBuff(), m_MsNetPacketHead.m_PacketLen);
+            return True;
+        }
+    }
+    else
+    {
+        m_MsNetPacketHead.m_PacketLen = xMsMemoryStream.m_InOffect + sizeof(xTonke);
+        if (m_MsNetPacketHead.m_PacketLen <= MAX_PACKET_DATA_LEN)
+        {
+            m_MsNetPacketHead.m_PacketIndex = xPacketIndex;
+            memcpy(m_PacketData, &xTonke, sizeof(xTonke));
+            memcpy(m_PacketData + sizeof(xTonke), xMsMemoryStream.GetBuff(), m_MsNetPacketHead.m_PacketLen - sizeof(xTonke));
+            return True;
+        }
+    }
+    return False;
+}
+
+Boolean MsNetPacket::FromProto(WORD xPacketIndex, BaseProto& xBaseProto, Boolean IsUTF8)
 {
     LPBASEPROTO lpTemp = &xBaseProto;
     if (IsUTF8)

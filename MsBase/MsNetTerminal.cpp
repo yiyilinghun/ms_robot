@@ -259,8 +259,8 @@ Boolean MsNetTerminal::OnNetSendOrRecv(iocp_net_ol* xIocpNetol, OVERLAPPED_ENTRY
         while (True)
         {
             m_RecvPacket.m_dwCompleteBytes = 0;
-            m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
-            m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
+            //m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
+            //m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
             if (this->RecvData(&(m_RecvPacket.m_MsNetPacketHead), m_RecvPacket.m_dwCompleteBytes, sizeof(MsNetPacketHead)))
             {
                 if (m_RecvPacket.m_MsNetPacketHead.m_PacketLen == 0)
@@ -298,7 +298,7 @@ void MsNetTerminal::Close()
 void MsNetTerminal::SendPacket(BaseProto& xBaseProto, Boolean IsLastSend)
 {
     MsNetPacket xMsNetPacket;
-    Int32 xPacketIndex = MsBase::GetProtoIntKey(xBaseProto);
+    WORD xPacketIndex = (WORD)MsBase::GetProtoIntKey(xBaseProto);
     if (xMsNetPacket.FromProto(xPacketIndex, xBaseProto, m_IsUTF8))
     {
         SendPacket(xMsNetPacket);
@@ -319,7 +319,7 @@ void MsNetTerminal::SendPacketForward(BaseProto& xBaseProto, Int64 xForwardKey, 
     Int32 xPacketIndex = MsBase::GetProtoIntKey(xBaseProto);
     if (xMsNetPacket.FromProto(xPacketIndex, xBaseProto, m_IsUTF8))
     {
-        xMsNetPacket.AddForwardKey(xForwardKey);
+        //xMsNetPacket.AddForwardKey(xForwardKey);
         SendPacket(xMsNetPacket);
         if (IsLastSend)
         {
@@ -339,7 +339,7 @@ void MsNetTerminal::SendPacketToUnit(BaseProto& xBaseProto, Int64 xUnitKey, Bool
     Int32 xPacketIndex = MsBase::GetProtoIntKey(xBaseProto);
     if (xMsNetPacket.FromProto(xPacketIndex, xBaseProto, m_IsUTF8))
     {
-        xMsNetPacket.AddUnitKey(xUnitKey);
+        //xMsNetPacket.AddUnitKey(xUnitKey);
         SendPacket(xMsNetPacket);
         if (IsLastSend)
         {
@@ -352,6 +352,21 @@ void MsNetTerminal::SendPacketToUnit(BaseProto& xBaseProto, Int64 xUnitKey, Bool
         MsBase::ShowNotExistField(xBaseProto);
     }
 }
+
+void MsNetTerminal::SendPacket(WORD xPacketIndex, MsMemoryStream& xMsMemoryStream, Boolean IsLastSend)
+{
+    MsNetPacket xMsNetPacket;
+    if (xMsNetPacket.FromStream(xPacketIndex, xMsMemoryStream))
+    {
+        SendPacket(xMsNetPacket);
+        if (IsLastSend)
+        {
+            m_IsLastSend = True;
+        }
+    }
+    AssertNormal(False, "packet too big : %d", (DWORD)xPacketIndex);
+}
+
 
 void MsNetTerminal::SendPacket(MsNetPacket& xMsNetPacket)
 {
@@ -410,36 +425,38 @@ void MsNetTerminal::OnAccept()
 
 Boolean MsNetTerminal::OnPacket()
 {
-    if (m_RecvPacket.m_MsNetPacketHead.m_Flag == MNPH_FLAG_FORWARD)
-    {
-        MsNetTerminal* lpUnit = (MsNetTerminal*)m_MsIOCPManager->GetUnit((ULONG_PTR)m_RecvPacket.m_MsNetPacketHead.m_Param);
-        m_RecvPacket.m_dwCompleteBytes = 0;
-        m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
-        m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
-        if (lpUnit)
-        {
-            lpUnit->SendPacket(m_RecvPacket);
-        }
-        return True;
-    }
-    else if (m_RecvPacket.m_MsNetPacketHead.m_Flag == MNPH_FLAG_TO_UNIT_KEY)
-    {
-        IocpUnit* lpUnit = m_MsIOCPManager->GetUnit((ULONG_PTR)m_RecvPacket.m_MsNetPacketHead.m_Param);
-        m_RecvPacket.m_dwCompleteBytes = 0;
-        m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
-        m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
-        if (lpUnit)
-        {
-            iocp_packet_ol xIocpol(this, &m_RecvPacket);
-            return lpUnit->OnNewPacket(m_RecvPacket.m_MsNetPacketHead.m_PacketIndex, &xIocpol);
-        }
-    }
-    else
-    {
-        iocp_packet_ol xIocpol(this, &m_RecvPacket);
-        m_RecvPacket.m_dwCompleteBytes = 0;
-        return this->OnNewPacket(m_RecvPacket.m_MsNetPacketHead.m_PacketIndex, &xIocpol);
-    }
+    //if (m_RecvPacket.m_MsNetPacketHead.m_Flag == MNPH_FLAG_FORWARD)
+    //{
+    //    MsNetTerminal* lpUnit = (MsNetTerminal*)m_MsIOCPManager->GetUnit((ULONG_PTR)m_RecvPacket.m_MsNetPacketHead.m_Param);
+    //    m_RecvPacket.m_dwCompleteBytes = 0;
+    //    m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
+    //    m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
+    //    if (lpUnit)
+    //    {
+    //        lpUnit->SendPacket(m_RecvPacket);
+    //    }
+    //    return True;
+    //}
+    //else if (m_RecvPacket.m_MsNetPacketHead.m_Flag == MNPH_FLAG_TO_UNIT_KEY)
+    //{
+    //    IocpUnit* lpUnit = m_MsIOCPManager->GetUnit((ULONG_PTR)m_RecvPacket.m_MsNetPacketHead.m_Param);
+    //    m_RecvPacket.m_dwCompleteBytes = 0;
+    //    m_RecvPacket.m_MsNetPacketHead.m_Flag = 0;
+    //    m_RecvPacket.m_MsNetPacketHead.m_Param = INVALID_QID;
+    //    if (lpUnit)
+    //    {
+    //        iocp_packet_ol xIocpol(this, &m_RecvPacket);
+    //        return lpUnit->OnNewPacket(m_RecvPacket.m_MsNetPacketHead.m_PacketIndex, &xIocpol);
+    //    }
+    //}
+    //else
+    //{
+    iocp_packet_ol xIocpol(this, &m_RecvPacket);
+    m_RecvPacket.m_dwCompleteBytes = 0;
+    WORD xTempPacketIndex = m_RecvPacket.m_MsNetPacketHead.m_PacketIndex;
+    m_RecvPacket.m_MsNetPacketHead.m_PacketIndex = *((LPWORD)m_RecvPacket.m_PacketData);
+    return this->OnNewPacket(m_RecvPacket.m_MsNetPacketHead.m_PacketIndex, &xIocpol);
+    //}
     return False;
 }
 

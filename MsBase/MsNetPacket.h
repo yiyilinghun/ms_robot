@@ -5,12 +5,13 @@
 #pragma pack(push,1)
 struct MsNetPacketHead
 {
-#define MNPH_FLAG_FORWARD       0x0000FFFF
-#define MNPH_FLAG_TO_UNIT_KEY   0x0000FFFE
-    DWORD m_Flag;
-    DWORD m_PacketIndex;
+    //#define MNPH_FLAG_FORWARD       0x0000FFFF
+    //#define MNPH_FLAG_TO_UNIT_KEY   0x0000FFFE
+        //DWORD m_Flag;
+    WORD m_PacketIndex;
     DWORD m_PacketLen;
-    QWORD m_Param;
+    //WORD m_FunctionId;
+    //QWORD m_Param;
 };
 
 
@@ -23,19 +24,8 @@ public:
     void ProtoStr2M(const BaseProto& xSrcProto, LPBASEPROTO xTarProto);
     void ProtoStr2U8(const BaseProto& xSrcProto, LPBASEPROTO xTarProto);
 
-    DINLINE void AddForwardKey(QWORD xForwardKey)
-    {
-        m_MsNetPacketHead.m_Flag = MNPH_FLAG_FORWARD;
-        m_MsNetPacketHead.m_Param = xForwardKey;
-    }
-
-    DINLINE void AddUnitKey(QWORD xUnitKey)
-    {
-        m_MsNetPacketHead.m_Flag = MNPH_FLAG_TO_UNIT_KEY;
-        m_MsNetPacketHead.m_Param = xUnitKey;
-    }
-
-    Boolean FromProto(DWORD xPacketIndex, BaseProto& xBaseProto, Boolean IsUTF8);
+    Boolean FromStream(WORD xPacketIndex, MsMemoryStream& xMsMemoryStream, QWORD xTonke = INVALID_QID);
+    Boolean FromProto(WORD xPacketIndex, BaseProto& xBaseProto, Boolean IsUTF8);
     Boolean ToProto(BaseProto& xBaseProto, Boolean IsUTF8);
 
 public:

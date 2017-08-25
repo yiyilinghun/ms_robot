@@ -339,9 +339,15 @@ IDR_POPUP_ROBOT_COMMAND MENU
 BEGIN
     POPUP "编辑"
     BEGIN
-        MENUITEM "开始登录(&1)",                    ID_EDIT_C2S_LOGIN
-        MENUITEM "开关移动(&2)",                    ID_ROBOT_MOVE
-        MENUITEM "切换场景(&3)",                    ID_ROBOT_CHANGE_SCENE
+        POPUP "GM指令(&0)"
+        BEGIN
+            MENUITEM "I AM GOD",                    ID_GM_I_AM_GOD
+        END
+        MENUITEM "注册(&1)",                      ID_EDIT_C2S_REGISTER
+        MENUITEM "登录(&2)",                      ID_EDIT_C2S_LOGIN
+        MENUITEM "建角(&3)",                      ID_ROBOT_CREATE_ROLE
+        MENUITEM "进场(&4)",                      ID_ROBOT_ENTER_SCENE
+        MENUITEM "进入魂兽战",                       ID_ENTER_SKY_MONTER
     END
 END
 

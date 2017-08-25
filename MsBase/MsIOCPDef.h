@@ -31,7 +31,7 @@ enum IOCP_OL_TYPE
 #define CENTER_MAILMANAGER_IOCP_UNIT_KEY        0x7FFFFFFFFFFFF005
 
 
-#define AR_UID_EXE(_class_, _fun_) class c##_class_##_fun_ : public _class_ { public:Boolean _class_##_fun_(iocp_base_ol*); }; AutoRegExeFunIocpUnitAssist ms_AutoRegExeFunIocpUnitAssist_##_class_##_fun_(ERT_##_class_, MsBase::GetProtoIntKey(""#_fun_), (UnitRoute<LogicUnit>::LPEXEFUN)&c##_class_##_fun_::_class_##_fun_, GetIocpUnitRoute(ERT_##_class_)); Boolean c##_class_##_fun_::_class_##_fun_(iocp_base_ol* lpIocpol)
+#define AR_UID_EXE(_class_, _fun_) class c##_class_##_fun_ : public _class_ { public:Boolean _class_##_fun_(iocp_base_ol*); }; AutoRegExeFunIocpUnitAssist ms_AutoRegExeFunIocpUnitAssist_##_class_##_fun_(ERT_##_class_, _fun_, (UnitRoute<LogicUnit>::LPEXEFUN)&c##_class_##_fun_::_class_##_fun_, GetIocpUnitRoute(ERT_##_class_)); Boolean c##_class_##_fun_::_class_##_fun_(iocp_base_ol* lpIocpol)
 
 #define AR_STR_EXE(_class_, _fun_) class c##_class_##_fun_ : public _class_ { public:Boolean _class_##_fun_(iocp_base_ol*); }; AutoRegExeFunIocpUnitAssist ms_AutoRegExeFunIocpUnitAssist_##_class_##_fun_(ERT_##_class_, ""#_fun_, (UnitRoute<LogicUnit>::LPEXEFUN)&c##_class_##_fun_::_class_##_fun_, GetIocpUnitRoute(ERT_##_class_)); Boolean c##_class_##_fun_::_class_##_fun_(iocp_base_ol* lpIocpol)
 
@@ -73,7 +73,8 @@ enum E_ROUTE_TYPE
     ERT_SceneManager,
     ERT_ScenePlayer,
 
-    ERT_RobotPlayer,
+    ERT_RobotCellPlayer,
+    ERT_RobotRoomPlayer,
     ERT_MainPlayer,
     ERT_ServerBaseScene,
 

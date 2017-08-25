@@ -58,7 +58,10 @@ Boolean MsIOCPManager::AttachObject(IocpUnit& xIocpUnit)
     Int64 xUnitIndex = lpIocpUnit->m_UnitIndex;
     if (xHandle != 0 && xHandle != INVALID_HANDLE_VALUE)
     {
-        ::CreateIoCompletionPort(xHandle, m_hIoCompletionPort, (ULONG_PTR)xUnitIndex, 0);
+        if (m_hIoCompletionPort != ::CreateIoCompletionPort(xHandle, m_hIoCompletionPort, (ULONG_PTR)xUnitIndex, 0))
+        {
+            AssertLog("AttachObject::CreateIoCompletionPort::Failed");
+        }
     }
     m_Dict_Unit.Add(xUnitIndex, lpIocpUnit);
     m_Dict_TickUnit.Add(xUnitIndex, lpIocpUnit);

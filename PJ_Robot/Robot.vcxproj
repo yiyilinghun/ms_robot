@@ -37,7 +37,8 @@
     <ClCompile Include="RobotApp.cpp" />
     <ClCompile Include="RobotDoc.cpp" />
     <ClCompile Include="RobotList.cpp" />
-    <ClCompile Include="RobotPlayer.cpp" />
+    <ClCompile Include="RobotCellPlayer.cpp" />
+    <ClCompile Include="RobotRoomPlayer.cpp" />
     <ClCompile Include="RobotView.cpp" />
     <ClCompile Include="ViewTree.cpp" />
   </ItemGroup>
@@ -56,7 +57,8 @@
     <ClInclude Include="RobotApp.h" />
     <ClInclude Include="RobotDoc.h" />
     <ClInclude Include="RobotList.h" />
-    <ClInclude Include="RobotPlayer.h" />
+    <ClInclude Include="RobotCellPlayer.h" />
+    <ClInclude Include="RobotRoomPlayer.h" />
     <ClInclude Include="RobotView.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ViewTree.h" />

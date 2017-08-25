@@ -85,7 +85,7 @@ typedef google::protobuf::Message*  LPBASEPROTO;
 
 #define DLL_EXPORTS __declspec(dllimport)
 
-#include "RobotPlayer.h"
+#include "GlobalPlayer.h"
 #include "ZipFunction.h"
 
 #include "MainFrm.h"

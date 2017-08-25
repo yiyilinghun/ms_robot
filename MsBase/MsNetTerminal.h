@@ -18,6 +18,7 @@ public:
     Boolean IsConnect() { return m_IsConnect && IsValid(); }
     virtual void Close();
 
+    void SendPacket(WORD xPacketIndex, MsMemoryStream& xMsMemoryStream, Boolean IsLastSend = False);
     void SendPacket(MsNetPacket& xMsNetPacket);
     void SendPacket(BaseProto& xBaseProto, Boolean IsLastSend = False);
     void SendPacketForward(BaseProto& xBaseProto, Int64 xForwardKey, Boolean IsLastSend = False);

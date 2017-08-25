@@ -48,9 +48,6 @@
     <ClCompile Include="RobotView.cpp">
       <Filter>04.单元视图</Filter>
     </ClCompile>
-    <ClCompile Include="RobotPlayer.cpp">
-      <Filter>04.机器人类</Filter>
-    </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
       <Filter>99.MFC源文件</Filter>
     </ClCompile>
@@ -81,6 +78,12 @@
     <ClCompile Include="..\PJ_Common\GlobalPlayer.cpp">
       <Filter>04.机器人类</Filter>
     </ClCompile>
+    <ClCompile Include="RobotRoomPlayer.cpp">
+      <Filter>04.机器人类</Filter>
+    </ClCompile>
+    <ClCompile Include="RobotCellPlayer.cpp">
+      <Filter>04.机器人类</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Precompiled.h">
@@ -97,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="RobotView.h">
       <Filter>04.单元视图</Filter>
-    </ClInclude>
-    <ClInclude Include="RobotPlayer.h">
-      <Filter>04.机器人类</Filter>
     </ClInclude>
     <ClInclude Include="ChildFrm.h">
       <Filter>99.MFC头文件</Filter>
@@ -135,6 +135,12 @@
       <Filter>99.共享数据</Filter>
     </ClInclude>
     <ClInclude Include="..\PJ_Common\GlobalPlayer.h">
+      <Filter>04.机器人类</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotRoomPlayer.h">
+      <Filter>04.机器人类</Filter>
+    </ClInclude>
+    <ClInclude Include="RobotCellPlayer.h">
       <Filter>04.机器人类</Filter>
     </ClInclude>
   </ItemGroup>

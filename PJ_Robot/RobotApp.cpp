@@ -161,6 +161,8 @@ BOOL RobotApp::InitInstance()
     pMainFrame->ShowWindow(m_nCmdShow);
     pMainFrame->UpdateWindow();
 
+
+    this->LoadCommand("protocol_list.txt");
     return TRUE;
 }
 
@@ -237,6 +239,91 @@ void RobotApp::SaveCustomState()
 }
 
 // RobotApp 消息处理程序
+void RobotApp::LoadCommand(mstr xCommandFileName)
+{
+    Char xBuffer[16 * KB_SIZE];
+    std::ifstream xFileStream(xCommandFileName);
+    if (!xFileStream.is_open())
+    {
+        //LOG_ERROR("file is open!");
+        return;
+    }
+    while (!xFileStream.eof())
+    {
+        xFileStream.getline(xBuffer, 1024);
+        std::string strSrc(xBuffer);
+        if (!strSrc.empty())
+        {
+            MsList<mstr> xParams;
+            MsBase::StringSplit(strSrc.c_str(), ':', xParams);
+            if (xParams.GetCount() == 3)
+            {
+                MsgStruct msg;
+                if (MsBase::stoi(xParams[0].c_str(), msg.ID))
+                {
+                    if (GetBuffFromBase64(xParams[1], msg.sBuffer))
+                    {
+                        msg.fTime = atof(xParams[2].c_str());
+                        g_CommandList.Add(msg);
+                    }
+                }
+            }
+        }
+    }
+}
 
-
+Boolean RobotApp::GetBuffFromBase64(mstr& strSrc, mstr& strResult)
+{
+    //LOG_TRACE("src[" << strSrc << "] len : " << strSrc.size());
+    int maxLen = (Int32)strSrc.size() / 4 * 3;
+    strResult.resize(maxLen);
+    int tarIndex(0), srcIndex(0);
+    int emptyNum(0);
+    while (srcIndex < strSrc.size())
+    {
+        int iVal(0);
+        for (int i = 0; i < 4; i++)
+        {
+            char cSrc = strSrc[srcIndex + i];
+            int iNow(0);
+            if (cSrc >= 'A' && cSrc <= 'Z')
+            {
+                iNow = cSrc - 'A';
+            }
+            else if (cSrc >= 'a' && cSrc <= 'z')
+            {
+                iNow = cSrc - 'a' + 26;
+            }
+            else if (cSrc >= '0' && cSrc <= '9')
+            {
+                iNow = cSrc - '0' + 52;
+            }
+            else if (cSrc == '+')
+            {
+                iNow = 62;
+            }
+            else if (cSrc == '/')
+            {
+                iNow = 63;
+            }
+            else if (cSrc == '=')
+            {
+                emptyNum++;
+            }
+            iVal = (iVal << 6) + iNow;
+        }
+        srcIndex += 4;
+        for (int i = 2; i >= 0; i--)
+        {
+            int iNow = (iVal >> (i * 8)) & 0xFF;
+            strResult[tarIndex] = iNow;
+            tarIndex++;
+        }
+    }
+    if (emptyNum > 0)
+    {
+        strResult.resize(maxLen - emptyNum);
+    }
+    return True;
+}
 

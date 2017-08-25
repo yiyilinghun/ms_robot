@@ -14,6 +14,8 @@
 // 有关此类的实现，请参阅 MFC_Robot.cpp
 //
 
+extern MsList<MsgStruct> g_CommandList;
+
 class RobotApp : public CWinAppEx
 {
 public:
@@ -32,6 +34,10 @@ public:
     virtual void PreLoadState();
     virtual void LoadCustomState();
     virtual void SaveCustomState();
+
+
+    void LoadCommand(mstr xCommandFileName);
+    Boolean GetBuffFromBase64(std::string& strSrc, std::string& strResult);
 
     afx_msg void OnAppAbout();
     DECLARE_MESSAGE_MAP()

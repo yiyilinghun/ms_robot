@@ -275,7 +275,7 @@ void RobotList::CreateRobot(Int32 xRobotCount)
                 {
                     //if (!xRobotView->AddNewRobot(L"121.40.89.124", 10024))
 
-                    if (!xRobotView->AddNewRobot(L"192.168.4.209", 52113)) {
+                    if (!xRobotView->AddNewRobot(L"127.0.0.1", 52113)) {
                         break;
                     }
                     //if (!xRobotView->AddNewRobot(L"172.168.100.12", 40001))

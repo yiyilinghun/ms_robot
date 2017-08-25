@@ -66,7 +66,61 @@ public:
         return *this;
     }
 
-    MsMemoryStream& Write(LPVOID xData, DWORD xLen)
+    template<class TP>
+    MsMemoryStream& operator << (TP&& xParam)
+    {
+        if (m_InOffect + sizeof(TP) <= m_BufferSize)
+        {
+            *((TP*)(m_spBuffer.get() + m_InOffect)) = xParam;
+            m_InOffect += sizeof(TP);
+        }
+        else { throw "内存流越界!"; }
+        return *this;
+    }
+
+    MsMemoryStream& WriteLenStr(mstr& xStr)
+    {
+        return WriteLenStr(MsBase::M2W(xStr));
+    }
+
+    MsMemoryStream& WriteLenStr(mstr&& xStr)
+    {
+        return WriteLenStr(MsBase::M2W(xStr));
+    }
+    MsMemoryStream& WriteLenStr(wstr& xStr)
+    {
+        DWORD xStrLen = (DWORD)xStr.size();
+        BYTE xByteFlag = 0xFF;
+        if (xStrLen < 0xFF)
+        {
+            BYTE xByte = (BYTE)xStrLen;
+            this->Write(&xByte, sizeof(xByte));
+        }
+        else
+        {
+            this->Write(&xByteFlag, sizeof(xByteFlag));
+            this->Write(&xStrLen, sizeof(xStrLen));
+        }
+        return this->Write(xStr.data(), (DWORD)xStr.size() * sizeof(wchar_t));
+    }
+    MsMemoryStream& WriteLenStr(wstr&& xStr)
+    {
+        DWORD xStrLen = (DWORD)xStr.size();
+        BYTE xByteFlag = 0xFF;
+        if (xStrLen < 0xFF)
+        {
+            BYTE xByte = (BYTE)xStrLen;
+            this->Write(&xByte, sizeof(xByte));
+        }
+        else
+        {
+            this->Write(&xByteFlag, sizeof(xByteFlag));
+            this->Write(&xStrLen, sizeof(xStrLen));
+        }
+        return this->Write(xStr.data(), (DWORD)xStr.size() * sizeof(wchar_t));
+    }
+
+    MsMemoryStream& Write(LPCVOID xData, DWORD xLen)
     {
         if (m_InOffect + xLen <= m_BufferSize)
         {
@@ -103,7 +157,7 @@ public:
         return False;
     }
 
-private:
+    //private:
     Boolean m_IsNeedFree;
     DWORD   m_InOffect;
     DWORD   m_OutOffect;

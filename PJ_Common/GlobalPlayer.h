@@ -1,4 +1,6 @@
 #pragma once
+#include "RobotCellPlayer.h"
+#include "RobotRoomPlayer.h"
 
 static class GlobalPlayer
 {
